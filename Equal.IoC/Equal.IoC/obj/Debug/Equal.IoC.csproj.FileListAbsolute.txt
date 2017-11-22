@@ -1,0 +1,7 @@
+E:\新纪元\Dong\Equal-Net\Equal.IoC\bin\Debug\Equal.IoC.dll
+E:\新纪元\Dong\Equal-Net\Equal.IoC\bin\Debug\Equal.IoC.pdb
+E:\新纪元\Dong\Equal-Net\Equal.IoC\bin\Debug\Castle.Core.dll
+E:\新纪元\Dong\Equal-Net\Equal.IoC\bin\Debug\Castle.Windsor.dll
+E:\新纪元\Dong\Equal-Net\Equal.IoC\obj\Debug\Equal.IoC.dll
+E:\新纪元\Dong\Equal-Net\Equal.IoC\obj\Debug\Equal.IoC.pdb
+E:\新纪元\Dong\Equal-Net\Equal.IoC\obj\Debug\Equal.IoC.csprojResolveAssemblyReference.cache
