@@ -9,6 +9,7 @@ namespace Equal.Utility
 {
     public class SnowFlake
     {
+
         private static long machineId;//机器Id
         private static long datacenterId = 0L;//数据Id
         private static long sequence = 0L;//计数从零开始
