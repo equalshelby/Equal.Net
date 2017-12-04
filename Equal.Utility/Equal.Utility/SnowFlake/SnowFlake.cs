@@ -204,7 +204,7 @@ namespace Equal.Utility
         /// 获取SnowFlakeID
         /// </summary>
         /// <returns></returns>
-        public static long GetId()
+        public static long GetNewId()
         {
             lock (syncRoot)
             {
