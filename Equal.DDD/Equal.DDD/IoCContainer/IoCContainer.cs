@@ -12,7 +12,7 @@ namespace Equal.DDD
         private static IoCContainer _instance = null;
         private static readonly object _lock = new object();
 
-        //1.注册相关实现类到特定的安装类2.执行安装类的安装。
+        //1.注册相关实现类到特定的安装类2.执行安装类的安装。 
 
         /// <summary>
         ///使用构造方法配置
