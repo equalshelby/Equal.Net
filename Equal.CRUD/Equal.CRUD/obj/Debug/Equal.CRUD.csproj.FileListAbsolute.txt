@@ -3,3 +3,9 @@ E:\Dong\Equal-Net\Equal.CRUD\Equal.CRUD\bin\Debug\Equal.CRUD.pdb
 E:\Dong\Equal-Net\Equal.CRUD\Equal.CRUD\obj\Debug\Equal.CRUD.csprojResolveAssemblyReference.cache
 E:\Dong\Equal-Net\Equal.CRUD\Equal.CRUD\obj\Debug\Equal.CRUD.dll
 E:\Dong\Equal-Net\Equal.CRUD\Equal.CRUD\obj\Debug\Equal.CRUD.pdb
+E:\Dong\Equal-Net\trunk\Equal.Net\Equal.CRUD\Equal.CRUD\bin\Debug\Equal.CRUD.dll
+E:\Dong\Equal-Net\trunk\Equal.Net\Equal.CRUD\Equal.CRUD\bin\Debug\Equal.CRUD.pdb
+E:\Dong\Equal-Net\trunk\Equal.Net\Equal.CRUD\Equal.CRUD\obj\Debug\Equal.CRUD.csprojResolveAssemblyReference.cache
+E:\Dong\Equal-Net\trunk\Equal.Net\Equal.CRUD\Equal.CRUD\obj\Debug\Equal.CRUD.csproj.CoreCompileInputs.cache
+E:\Dong\Equal-Net\trunk\Equal.Net\Equal.CRUD\Equal.CRUD\obj\Debug\Equal.CRUD.dll
+E:\Dong\Equal-Net\trunk\Equal.Net\Equal.CRUD\Equal.CRUD\obj\Debug\Equal.CRUD.pdb
