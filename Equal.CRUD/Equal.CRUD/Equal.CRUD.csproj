@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\DaoHelper\MssqlDaoHelper.cs" />
     <Compile Include="Dao\SelectDaoBase.cs" />
     <Compile Include="Domain\Condition\ICondition.cs" />
     <Compile Include="Domain\DaoException.cs" />
