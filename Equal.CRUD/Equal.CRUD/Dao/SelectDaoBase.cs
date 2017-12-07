@@ -3,21 +3,61 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using Equal.CRUD.Domain;
 using Equal.CRUD.IDao;
+
+using IBatisNet.DataMapper;
 
 namespace Equal.CRUD.Dao
 {
     public abstract class SelectDaoBase<T, U> : ISelectDaoBase<T, U> where T : DomainBase<U>
     {
+        /// <summary>
+        /// sqlMapper
+        /// </summary>
+        protected ISqlMapper _sqlMapper;
 
         /// <summary>
         /// 具体数据库的DaoHelper
         /// 通过属性注入，修饰符只能为public，不能为protected
         /// </summary>
         public IDaoHelper DaoHelper { get; set; }
+
+
+        private string _sqlMapNamespace;
+
+        /// <summary>
+        /// SqlMap的Namespace
+        /// </summary>
+        protected virtual string SqlMapNamespace
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_sqlMapNamespace))
+                    _sqlMapNamespace = typeof(T).GetDomainName();
+                return _sqlMapNamespace;
+            }
+        }
+
+        /// <summary>
+        /// 构造带Namespace的SqlMap Statement Id
+        /// </summary>
+        /// <param name="statementId"></param>
+        /// <returns></returns>
+        protected virtual string GetStatementIdWithNamespace(string statementId)
+        {
+            return SqlMapNamespace + "." + statementId;
+        }
+
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="sqlMapper"></param>
+        protected SelectDaoBase(ISqlMapper sqlMapper)
+        {
+            _sqlMapper = sqlMapper;
+        }
 
         #region Condition
 

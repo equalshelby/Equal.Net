@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
@@ -35,6 +36,27 @@ namespace Equal.CRUD.Dao.DaoHelper
                 }
             }
             return sb.ToString();
+        }
+
+        public Hashtable ProcessConditionHashtable(Hashtable cond)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ProcessLike(string str)
+        {
+            if (string.IsNullOrEmpty(str))
+                return string.Empty;
+            str = str.Replace("[", "[[]");//【[】必须为第一个，否则转义符会再次转义
+            str = str.Replace("_", "[_]");//或将【_】替换成【\_】
+            str = str.Replace("%", "[%]");//或将【%】替换成【\%】
+            str = str.Replace("'", "''");
+            return str;
+        }
+
+        public void SetPageArg(ref Hashtable cond, int startRecordIndex, int pageSize)
+        {
+            throw new NotImplementedException();
         }
     }
 }
