@@ -32,6 +32,13 @@ namespace Equal.CRUD.IDao
         string ProcessLike(string str);
 
         /// <summary>
+        /// LIKE参数化查询通配符转义
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        string ProcessLikeParam(string str);
+
+        /// <summary>
         /// 为集合中添加分页参数，参数必须使用ref修饰符，否则当参数为null时，cond = new Hashtable()并不会替换实参cond
         /// </summary>
         /// <param name="cond"></param>
