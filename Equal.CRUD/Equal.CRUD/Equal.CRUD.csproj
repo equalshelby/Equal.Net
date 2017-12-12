@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\DaoBase.cs" />
     <Compile Include="Dao\DaoHelper\MssqlDaoHelper.cs" />
     <Compile Include="Dao\SelectDaoBase.cs" />
     <Compile Include="Dao\SqlMapConstants.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Domain\DomainExtensionMethod.cs" />
     <Compile Include="Domain\DomainNameAttribute.cs" />
     <Compile Include="Domain\RelatedDomainBase.cs" />
+    <Compile Include="IDao\IDaoBase.cs" />
     <Compile Include="IDao\IDaoHelper.cs" />
     <Compile Include="IDao\ISelectDaoBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
