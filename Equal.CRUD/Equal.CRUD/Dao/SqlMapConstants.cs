@@ -63,7 +63,7 @@
         /// <summary>
         /// OrderBy参数名
         /// </summary>
-        public const string OrderByParam = "OrderBy";
+        public const string OrderPropertyParam = "OrderBy";
 
         /// <summary>
         /// Id参数名
