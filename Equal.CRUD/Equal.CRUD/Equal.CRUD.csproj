@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Dao\DaoHelper\MssqlDaoHelper.cs" />
     <Compile Include="Dao\SelectDaoBase.cs" />
+    <Compile Include="Dao\SqlMapConstants.cs" />
     <Compile Include="Domain\Condition\ICondition.cs" />
     <Compile Include="Domain\DaoException.cs" />
     <Compile Include="Domain\DomainBase.cs" />
