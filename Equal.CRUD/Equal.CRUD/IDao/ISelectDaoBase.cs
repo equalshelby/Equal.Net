@@ -24,7 +24,7 @@ namespace Equal.CRUD.IDao
 
         #endregion
 
-        #region OrderBy
+        #region OrderProperty
 
         /// <summary>
         /// 取支持的排序属性
@@ -40,33 +40,33 @@ namespace Equal.CRUD.IDao
         /// 根据条件查询
         /// </summary>
         /// <param name="condition">查询条件，禁止传递空Condition查询</param>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns></returns>
-        IList<T> Select(ICondition condition, NameValueCollection orderByColl = null);
+        IList<T> Select(ICondition condition, NameValueCollection orderPropertyColl = null);
 
         /// <summary>
         /// 查询所有数据
         /// </summary>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns>查询结果</returns>
-        IList<T> SelectAll(NameValueCollection orderByColl = null);
+        IList<T> SelectAll(NameValueCollection orderPropertyColl = null);
 
         /// <summary>
         /// 根据条件查询顶部指定数量的数据
         /// </summary>
         /// <param name="topCount">查询数量</param>
         /// <param name="condition">查询条件，如为null或未设置查询条件则查询所有</param>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns>查询结果</returns>
-        IList<T> SelectTop(int topCount, ICondition condition = null, NameValueCollection orderByColl = null);
+        IList<T> SelectTop(int topCount, ICondition condition = null, NameValueCollection orderPropertyColl = null);
 
         /// <summary>
         /// 根据条件查询顶部第一条记录
         /// </summary>
         /// <param name="condition">查询条件，如为null或未设置查询条件则查询所有</param>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns>查询结果</returns>
-        T SelectTop1(ICondition condition = null, NameValueCollection orderByColl = null);
+        T SelectTop1(ICondition condition = null, NameValueCollection orderPropertyColl = null);
 
         #endregion
 
@@ -120,18 +120,18 @@ namespace Equal.CRUD.IDao
         /// <param name="startRecordIndex">当前页数据记录的起始索引，从1开始</param>
         /// <param name="pageSize">每页显示的记录数</param>
         /// <param name="condition">查询条件，如为null或未设置查询条件则查询所</param>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns>查询结果</returns>
-        IList<T> SelectByPage(int startRecordIndex, int pageSize, ICondition condition = null, NameValueCollection orderByColl = null);
+        IList<T> SelectByPage(int startRecordIndex, int pageSize, ICondition condition = null, NameValueCollection orderPropertyColl = null);
 
         /// <summary>
         /// 分页查询所有数据
         /// </summary>
         /// <param name="startRecordIndex">当前页数据记录的起始索引，从1开始</param>
         /// <param name="pageSize">每页显示的记录数</param>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns>查询结果</returns>
-        IList<T> SelectAllByPage(int startRecordIndex, int pageSize, NameValueCollection orderByColl = null);
+        IList<T> SelectAllByPage(int startRecordIndex, int pageSize, NameValueCollection orderPropertyColl = null);
 
         #endregion
     }

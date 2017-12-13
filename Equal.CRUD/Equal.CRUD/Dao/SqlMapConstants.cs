@@ -63,7 +63,7 @@
         /// <summary>
         /// OrderBy参数名
         /// </summary>
-        public const string OrderByParam = "OrderBy";
+        public const string OrderPropertyParam = "OrderBy";
 
         /// <summary>
         /// Id参数名
@@ -74,6 +74,40 @@
         /// Ids参数名
         /// </summary>
         public const string IdsParam = "Ids";
+
+        #endregion
+
+        #region RelatedDomainParam
+
+        /// <summary>
+        /// RelatedDomain参数名
+        /// </summary>
+        public const string RelatedDomainParam = "RelatedDomain";
+
+        /// <summary>
+        /// RelatedDomainId参数名
+        /// </summary>
+        public const string RelatedDomainIdParam = "RelatedDomainId";
+
+        /// <summary>
+        /// RelatedDomainIds参数名
+        /// </summary>
+        public const string RelatedDomainIdsParam = "RelatedDomainIds";
+
+        /// <summary>
+        /// UpdateRelated语句Id
+        /// </summary>
+        public const string UpdateRelatedStatementId = "UpdateRelated";
+
+        /// <summary>
+        /// UpdateRelatedDomain参数名
+        /// </summary>
+        public const string UpdateRelatedDomainParam = "UpdateRelatedDomain";
+
+        /// <summary>
+        /// UpdateRelatedDomainId参数名
+        /// </summary>
+        public const string UpdateRelatedDomainIdParam = "UpdateRelatedDomainId";
 
         #endregion
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
@@ -73,7 +72,7 @@ namespace Equal.CRUD.Dao
 
         #endregion
 
-        #region OrderBy
+        #region OrderProperty
 
         /// <summary>
         /// 默认排序条件集合，由继承类实现，当没有排序条件时默认使用此排序
@@ -120,13 +119,18 @@ namespace Equal.CRUD.Dao
         /// <summary>
         /// 生成排序SQL语句
         /// </summary>
-        /// <param name="orderBy">排序集合</param>
+        /// <param name="orderProperty">排序集合</param>
         /// <returns>生成排序Sql语句</returns>
-        protected string CreateOrderSql(NameValueCollection orderBy)
+        protected string CreateOrderSql(NameValueCollection orderProperty)
         {
-            return DaoHelper.CreateOrderSql(orderBy, _orderPropertyColumnMap);
+            return DaoHelper.CreateOrderSql(orderProperty, _orderPropertyColumnMap);
         }
 
+        /// <summary>
+        /// 添加排序SQL到Hashtable条件中
+        /// </summary>
+        /// <param name="condtion"></param>
+        /// <param name="orderColl"></param>
         protected void AddOrderPropertyCondition(Hashtable condtion, NameValueCollection orderColl)
         {
             string orderSql = DaoHelper.CreateOrderSql(orderColl, _orderPropertyColumnMap);
@@ -138,10 +142,10 @@ namespace Equal.CRUD.Dao
             if (condtion == null)
                 condtion = new Hashtable();
 
-            if (condtion.ContainsKey(SqlMapConstants.OrderByParam))
-                throw new DaoException("Dao查询条件Hashtable中不能定义键名为" + SqlMapConstants.OrderByParam + "，与查询条件键字冲突。");
+            if (condtion.ContainsKey(SqlMapConstants.OrderPropertyParam))
+                throw new DaoException("Dao查询条件Hashtable中不能定义键名为" + SqlMapConstants.OrderPropertyParam + "，与查询条件键字冲突。");
 
-            condtion.Add(SqlMapConstants.OrderByParam, orderSql);
+            condtion.Add(SqlMapConstants.OrderPropertyParam, orderSql);
 
         }
 
@@ -158,24 +162,63 @@ namespace Equal.CRUD.Dao
         #region Select
 
         /// <summary>
+        /// 根据条件查询(虚方法，可重写)
+        /// </summary>
+        /// <param name="condition">查询条件，如为null或空则查询所有</param>
+        /// <param name="orderPropertyColl">排序条件</param>
+        /// <returns></returns>
+        protected virtual IList<T> Select(Hashtable condition, NameValueCollection orderPropertyColl = null)
+        {
+            AddOrderPropertyCondition(condition, orderPropertyColl);
+            Hashtable ht = DaoHelper.ProcessConditionHashtable(condition);
+
+            return _sqlMapper.QueryForList<T>(GetStatementIdWithNamespace(SqlMapConstants.SelectStatementId), ht);
+        }
+
+        /// <summary>
         /// 根据条件查询
         /// </summary>
         /// <param name="condition">查询条件，禁止传递空Condition查询</param>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns></returns>
-        public IList<T> Select(ICondition condition, NameValueCollection orderByColl = null)
+        public IList<T> Select(ICondition condition, NameValueCollection orderPropertyColl = null)
         {
-            throw new NotImplementedException();
+            Hashtable ht = CreateConditionHashtable(condition);
+            if (ht.Count == 0)
+                throw new DaoException("不允许使用空查询条件调用“Select”方法，如需查询所有数据请显式调用“SelectAll”方法。");
+
+            return Select(ht, orderPropertyColl);
         }
 
         /// <summary>
         /// 查询所有数据
         /// </summary>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns>查询结果</returns>
-        public IList<T> SelectAll(NameValueCollection orderByColl = null)
+        public IList<T> SelectAll(NameValueCollection orderPropertyColl = null)
         {
-            throw new NotImplementedException();
+            return Select(new Hashtable(), orderPropertyColl);
+        }
+
+        /// <summary>
+        /// 根据条件查询顶部指定数量的数据，此方法使用SELECT TOP语句进行查询
+        /// </summary>
+        /// <param name="topCount">查询数量</param>
+        /// <param name="condition">查询条件，如为null或空则查询所有</param>
+        /// <param name="orderPropertyColl">排序条件</param>
+        /// <returns>查询结果</returns>
+        protected virtual IList<T> SelectTop(int topCount, Hashtable condition, NameValueCollection orderPropertyColl)
+        {
+            if (condition == null)
+                condition = new Hashtable();
+            if (condition.ContainsKey(SqlMapConstants.TopCountParam))
+                throw new DaoException("查询条件Hashtable中不能定义名称为" + SqlMapConstants.TopCountParam + "的Key。");
+            condition.Add(SqlMapConstants.TopCountParam, topCount);
+
+            AddOrderPropertyCondition(condition, orderPropertyColl);
+            Hashtable ht = DaoHelper.ProcessConditionHashtable(condition);
+
+            return _sqlMapper.QueryForList<T>(GetStatementIdWithNamespace(SqlMapConstants.SelectTopStatementId), ht);
         }
 
         /// <summary>
@@ -183,22 +226,22 @@ namespace Equal.CRUD.Dao
         /// </summary>
         /// <param name="topCount">查询数量</param>
         /// <param name="condition">查询条件，如为null或未设置查询条件则查询所有</param>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns>查询结果</returns>
-        public IList<T> SelectTop(int topCount, ICondition condition = null, NameValueCollection orderByColl = null)
+        public IList<T> SelectTop(int topCount, ICondition condition = null, NameValueCollection orderPropertyColl = null)
         {
-            throw new NotImplementedException();
+            return SelectTop(topCount, CreateConditionHashtable(condition), orderPropertyColl);
         }
 
         /// <summary>
         /// 根据条件查询顶部第一条记录
         /// </summary>
         /// <param name="condition">查询条件，如为null或未设置查询条件则查询所有</param>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns>查询结果</returns>
-        public T SelectTop1(ICondition condition = null, NameValueCollection orderByColl = null)
+        public T SelectTop1(ICondition condition = null, NameValueCollection orderPropertyColl = null)
         {
-            throw new NotImplementedException();
+            return SelectTop(1, condition, orderPropertyColl).FirstOrDefault();
         }
 
         #endregion
@@ -206,13 +249,17 @@ namespace Equal.CRUD.Dao
         #region SelectById
 
         /// <summary>
-        /// 根据领域对象Id集合查询，如集合为null或空则不进行查询。
+        /// 根据领域对象Id查询(虚方法，可重写)
         /// </summary>
-        /// <param name="idList">领域对象Id集合</param>
+        /// <param name="id">领域对象Id</param>
         /// <returns>查询结果</returns>
-        public IList<T> SelectByIdList(IList<U> idList)
+        public virtual T SelectById(U id)
         {
-            throw new NotImplementedException();
+            if (id == null)
+                return null;
+            Hashtable ht = new Hashtable() { { SqlMapConstants.IdParam, id } };
+
+            return _sqlMapper.QueryForObject<T>(GetStatementIdWithNamespace(SqlMapConstants.SelectStatementId), ht);
         }
 
         /// <summary>
@@ -222,18 +269,26 @@ namespace Equal.CRUD.Dao
         /// <returns>查询结果</returns>
         public T SelectByIdReq(U id)
         {
-            throw new NotImplementedException();
+            T t = SelectById(id);
+            if (t == null)
+                throw new DaoException(string.Format("{0}中没有找到Id为{1}的记录。", typeof(T).GetDomainName(), id));
+            return t;
         }
 
         /// <summary>
-        /// 根据领域对象Id查询
+        /// 根据领域对象Id集合查询，如集合为null或空则不进行查询。
         /// </summary>
-        /// <param name="id">领域对象Id</param>
+        /// <param name="idList">领域对象Id集合</param>
         /// <returns>查询结果</returns>
-        public T SelectById(U id)
+        public IList<T> SelectByIdList(IList<U> idList)
         {
-            throw new NotImplementedException();
+            if (idList == null || idList.Count == 0)
+                return new List<T>();
+
+            return Select(new Hashtable() { { SqlMapConstants.IdsParam, idList } });
         }
+
+
 
         #endregion
 
@@ -244,9 +299,22 @@ namespace Equal.CRUD.Dao
         /// </summary>
         /// <param name="condition">查询条件，如为null或空则查询所有</param>
         /// <returns>返回数量结果</returns>
+        protected virtual int SelectCount(Hashtable condition = null)
+        {
+            Hashtable ht = DaoHelper.ProcessConditionHashtable(condition);
+
+            return (int)_sqlMapper.QueryForObject(GetStatementIdWithNamespace(SqlMapConstants.SelectCountStatementId), ht);
+        }
+
+
+        /// <summary>
+        /// 根据条件类查询数量
+        /// </summary>
+        /// <param name="condition">查询条件，如为null或空则查询所有</param>
+        /// <returns>返回数量结果</returns>
         public int SelectCount(ICondition condition = null)
         {
-            throw new NotImplementedException();
+            return SelectCount(CreateConditionHashtable(condition));
         }
 
         /// <summary>
@@ -255,7 +323,7 @@ namespace Equal.CRUD.Dao
         /// <returns>返回数量结果</returns>
         public int SelectAllCount()
         {
-            throw new NotImplementedException();
+            return SelectCount(new Hashtable());
         }
 
         #endregion
@@ -263,16 +331,35 @@ namespace Equal.CRUD.Dao
         #region SelectByPage
 
         /// <summary>
+        /// 根据条件分页查询(虚方法，可重写)
+        /// </summary>
+        /// <param name="startRecordIndex">当前页数据记录的起始索引，从1开始</param>
+        /// <param name="pageSize">每页显示的记录数</param>
+        /// <param name="condition">查询条件，如为null或未设置查询条件则查询所</param>
+        /// <param name="orderPropertyColl">排序条件</param>
+        /// <returns>查询结果</returns>
+        public virtual IList<T> SelectByPage(int startRecordIndex, int pageSize, Hashtable condition = null, NameValueCollection orderPropertyColl = null)
+        {
+            AddOrderPropertyCondition(condition, orderPropertyColl);
+            Hashtable ht = DaoHelper.ProcessConditionHashtable(condition);
+
+            DaoHelper.SetPageArg(ref ht, startRecordIndex, pageSize);
+
+            return _sqlMapper.QueryForList<T>(GetStatementIdWithNamespace(SqlMapConstants.SelectByPageStatementId), ht);
+        }
+
+        /// <summary>
         /// 根据条件分页查询
         /// </summary>
         /// <param name="startRecordIndex">当前页数据记录的起始索引，从1开始</param>
         /// <param name="pageSize">每页显示的记录数</param>
         /// <param name="condition">查询条件，如为null或未设置查询条件则查询所</param>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns>查询结果</returns>
-        public IList<T> SelectByPage(int startRecordIndex, int pageSize, ICondition condition = null, NameValueCollection orderByColl = null)
+        public IList<T> SelectByPage(int startRecordIndex, int pageSize, ICondition condition = null, NameValueCollection orderPropertyColl = null)
         {
-            throw new NotImplementedException();
+            return SelectByPage(startRecordIndex, pageSize
+                , CreateConditionHashtable(condition), orderPropertyColl);
         }
 
         /// <summary>
@@ -280,11 +367,11 @@ namespace Equal.CRUD.Dao
         /// </summary>
         /// <param name="startRecordIndex">当前页数据记录的起始索引，从1开始</param>
         /// <param name="pageSize">每页显示的记录数</param>
-        /// <param name="orderByColl">排序条件</param>
+        /// <param name="orderPropertyColl">排序条件</param>
         /// <returns>查询结果</returns>
-        public IList<T> SelectAllByPage(int startRecordIndex, int pageSize, NameValueCollection orderByColl = null)
+        public IList<T> SelectAllByPage(int startRecordIndex, int pageSize, NameValueCollection orderPropertyColl = null)
         {
-            throw new NotImplementedException();
+            return SelectByPage(startRecordIndex, pageSize, new Hashtable(), orderPropertyColl);
         }
 
         #endregion
