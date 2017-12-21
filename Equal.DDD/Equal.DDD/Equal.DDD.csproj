@@ -46,12 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IoCContainer\IoCContainer.cs" />
+    <Compile Include="EventBus\ActionEventHandler.cs" />
+    <Compile Include="EventBus\EventBusWithReflection.cs" />
+    <Compile Include="EventBus\EventData.cs" />
+    <Compile Include="EventBus\IEventData.cs" />
+    <Compile Include="EventBus\IEventHandler.cs" />
+    <Compile Include="IocContainer\IocContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Base\" />
-    <Folder Include="EventBus\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,12 +4,12 @@ using Castle.Windsor.Installer;
 namespace Equal.DDD
 {
     /// <summary>
-    /// IoC容器
+    /// Ioc容器
     /// </summary>
-    public class IoCContainer
+    public class IocContainer
     {
         private IWindsorContainer _container;
-        private static IoCContainer _instance = null;
+        private static IocContainer _instance = null;
         private static readonly object _lock = new object();
 
         //1.注册相关实现类到特定的安装类2.执行安装类的安装。 
@@ -17,7 +17,7 @@ namespace Equal.DDD
         /// <summary>
         ///使用构造方法配置
         /// </summary>
-        private IoCContainer()
+        private IocContainer()
         {
             //1、容器创建时，可以将xml配置文件传递给引用。
             //IResource resource = new AssemblyResource("Castle.Services.config");
@@ -36,14 +36,14 @@ namespace Equal.DDD
         /// <summary>
         /// 注册Component
         /// </summary>
-        private static IoCContainer Instance
+        private static IocContainer Instance
         {
             get
             {
                 lock (_lock)
                 {
                     if (_instance == null)
-                        _instance = new IoCContainer();
+                        _instance = new IocContainer();
                     return _instance;
                 }
             }
