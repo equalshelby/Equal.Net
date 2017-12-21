@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventBus\ActionEventHandler.cs" />
+    <Compile Include="EventBus\EventBus.cs" />
     <Compile Include="EventBus\EventBusWithReflection.cs" />
     <Compile Include="EventBus\EventData.cs" />
+    <Compile Include="EventBus\IEventBus.cs" />
     <Compile Include="EventBus\IEventData.cs" />
     <Compile Include="EventBus\IEventHandler.cs" />
     <Compile Include="IocContainer\IocContainer.cs" />
