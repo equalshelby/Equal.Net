@@ -51,6 +51,7 @@
     <Compile Include="EventBus\EventData.cs" />
     <Compile Include="EventBus\IEventData.cs" />
     <Compile Include="EventBus\IEventHandler.cs" />
+    <Compile Include="IocContainer\IocContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
