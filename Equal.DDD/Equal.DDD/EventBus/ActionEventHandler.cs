@@ -6,7 +6,7 @@ namespace Equal.DDD
     /// 支持Action的事件处理器（委托-Action）
     /// </summary>
     /// <typeparam name="TEventData">事件源</typeparam>
-    internal class ActionEventHandler<TEventData> : IEventHandler where TEventData : IEventData
+    internal class ActionEventHandler<TEventData> : IEventHandler<TEventData> where TEventData : IEventData
     {
         /// <summary>
         /// 定义Action的引用，并通过构造函数传参初始化
@@ -30,5 +30,6 @@ namespace Equal.DDD
         {
             Action(eventData);
         }
+
     }
 }

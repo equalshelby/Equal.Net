@@ -4,7 +4,6 @@ E:\Dong\Equal-Net\Equal.DDD\Equal.DDD\bin\Debug\Castle.Core.dll
 E:\Dong\Equal-Net\Equal.DDD\Equal.DDD\bin\Debug\Castle.Windsor.dll
 E:\Dong\Equal-Net\Equal.DDD\Equal.DDD\obj\Debug\Equal.DDD.dll
 E:\Dong\Equal-Net\Equal.DDD\Equal.DDD\obj\Debug\Equal.DDD.pdb
-E:\Dong\Equal-Net\Equal.DDD\Equal.DDD\obj\Debug\Equal.DDD.csprojResolveAssemblyReference.cache
 E:\Dong\Equal-Net\trunk\Equal.Net\Equal.DDD\Equal.DDD\bin\Debug\Equal.DDD.dll
 E:\Dong\Equal-Net\trunk\Equal.Net\Equal.DDD\Equal.DDD\bin\Debug\Equal.DDD.pdb
 E:\Dong\Equal-Net\trunk\Equal.Net\Equal.DDD\Equal.DDD\bin\Debug\Castle.Core.dll

@@ -17,6 +17,6 @@
         /// 事件处理方法
         /// </summary>
         /// <param name="eventData"></param>
-        void HandleEvent(TEventData eventData);
+        void HandlerEvent(TEventData eventData);
     }
 }
