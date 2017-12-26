@@ -51,9 +51,10 @@ namespace Equal.Utility
         private static long sequence = 0L;
 
         /// <summary>
-        /// 唯一时间随机量（当前起始时间戳）
+        /// 唯一时间随机量（当前起始时间戳）Convert.ToInt64(ConfigurationManager.AppSettings["SFID_Twepoch"])
+        /// 2017-01-01
         /// </summary>
-        private static long twepoch = Convert.ToInt64(ConfigurationManager.AppSettings["SFID_Twepoch"]);
+        private static long twepoch = 631123200000L;
 
         /// <summary>
         /// 机器码字节数
