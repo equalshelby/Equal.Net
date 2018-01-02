@@ -31,23 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Facilities.IBatisNet">
-      <HintPath>..\_lib\IBatisNet\Castle.Facilities.IBatisNet.dll</HintPath>
-    </Reference>
-    <Reference Include="Equal.CRUD">
+    <Reference Include="Equal.CRUD, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\_lib\EqualNet\Equal.CRUD.dll</HintPath>
     </Reference>
-    <Reference Include="Equal.DDD">
-      <HintPath>..\_lib\EqualNet\Equal.DDD.dll</HintPath>
-    </Reference>
-    <Reference Include="Equal.Utility">
+    <Reference Include="Equal.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\_lib\EqualNet\Equal.Utility.dll</HintPath>
     </Reference>
-    <Reference Include="IBatisNet.Common">
-      <HintPath>..\_lib\IBatisNet\IBatisNet.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="IBatisNet.DataMapper">
-      <HintPath>..\_lib\IBatisNet\IBatisNet.DataMapper.dll</HintPath>
+    <Reference Include="IBatisNet.DataMapper, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\_lib\Castle.Facilities.IBatisNet\IBatisNet.DataMapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

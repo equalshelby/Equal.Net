@@ -6,7 +6,7 @@ using System.Collections.Specialized;
 
 using Equal.CRUD.IDao;
 
-namespace Equal.CRUD.Dao.DaoHelper
+namespace Equal.CRUD.Dao
 {
     public class MssqlDaoHelper : IDaoHelper
     {

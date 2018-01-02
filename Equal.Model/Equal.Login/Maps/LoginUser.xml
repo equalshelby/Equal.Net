@@ -5,7 +5,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <alias>
-    <typeAlias alias="LoginUser" type="Equal.Model.LoginUser.Domain.LoginUser, Equal.Model.LoginUser" />
+    <typeAlias alias="LoginUser" type="Equal.Login.Domain.LoginUser, Equal.Login" />
   </alias>
 
   <resultMaps>
@@ -19,8 +19,8 @@
 
   <statements>
     <insert id="Insert" parameterClass="LoginUser">
-      INSERT INTO EM_LoginUser (Lu_LoginName, Lu_LoginPassWord, Lu_LoginType, Lu_RecordTime)
-      VALUES (#LoginName#, #LoginPassWord#, #LoginType#, GETDATE())
+      INSERT INTO EM_LoginUser (Lu_Id, Lu_LoginName, Lu_LoginPassWord, Lu_LoginType, Lu_RecordTime)
+      VALUES (#Id#, #LoginName#, #LoginPassWord#, #LoginType#, GETDATE())
       <selectKey resultClass="long" type="post" property="Id">
         SELECT @@IDENTITY
       </selectKey>
