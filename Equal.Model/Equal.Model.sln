@@ -3,11 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equal.HR", "Equal.HR\Equal.HR.csproj", "{DC3BD540-F714-4A9B-8FB2-D07334A10356}"
-EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Equal.Model.Web", "Equal.Model.Web\", "{CFD4EB33-3277-44BF-B932-3C141EB25606}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{d1e23307-5bde-48df-9cae-28ce07ae8c08}|Equal.Login.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_13796"
 		Debug.AspNetCompiler.PhysicalPath = "Equal.Model.Web\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_13796\"
@@ -23,8 +22,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Equal.Model.Web", "Equal.Mo
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "13796"
+		SlnRelativePath = "Equal.Model.Web\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equal.Login", "Equal.Login\Equal.Login.csproj", "{D1E23307-5BDE-48DF-9CAE-28CE07AE8C08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,14 +34,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DC3BD540-F714-4A9B-8FB2-D07334A10356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC3BD540-F714-4A9B-8FB2-D07334A10356}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC3BD540-F714-4A9B-8FB2-D07334A10356}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC3BD540-F714-4A9B-8FB2-D07334A10356}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CFD4EB33-3277-44BF-B932-3C141EB25606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CFD4EB33-3277-44BF-B932-3C141EB25606}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFD4EB33-3277-44BF-B932-3C141EB25606}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{CFD4EB33-3277-44BF-B932-3C141EB25606}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D1E23307-5BDE-48DF-9CAE-28CE07AE8C08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1E23307-5BDE-48DF-9CAE-28CE07AE8C08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1E23307-5BDE-48DF-9CAE-28CE07AE8C08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1E23307-5BDE-48DF-9CAE-28CE07AE8C08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
