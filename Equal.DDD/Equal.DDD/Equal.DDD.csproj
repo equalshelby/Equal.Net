@@ -32,10 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core">
-      <HintPath>..\..\_lib\Equal.DDD\Castle\Castle.Core.dll</HintPath>
+      <HintPath>..\..\_lib\Castle.Facilities.IBatisNet\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor">
-      <HintPath>..\..\_lib\Equal.DDD\Castle\Castle.Windsor.dll</HintPath>
+      <HintPath>..\..\_lib\Castle.Facilities.IBatisNet\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
