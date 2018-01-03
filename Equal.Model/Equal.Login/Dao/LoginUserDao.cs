@@ -27,6 +27,9 @@ namespace Equal.Login.Dao
 
             LoginUserCondition cond = (LoginUserCondition)condition;
 
+            if (cond.ByLoginName)
+                ht.Add("LoginName", cond.LoginName);
+
             return ht;
         }
     }

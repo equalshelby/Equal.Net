@@ -25,6 +25,11 @@
                     <asp:Button runat="server" ID="btnRegist" OnClick="btnRegist_Click" Text="注册" />
                 </td>
             </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Button runat="server" ID="btnSearch" Text="查询" OnClick="btnSearch_Click" />
+                </td>
+            </tr>
         </table>
     </div>
     </form>

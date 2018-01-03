@@ -102,6 +102,9 @@
     <sql id="SqlOrderByCustom">
     </sql>
     <sql id="SqlWhereCustom">
+      <isNotNull prepend="AND" property="LoginName">
+        Lu_LoginName = #LoginName#
+      </isNotNull>
     </sql>
     <!--Custom Sql End-->
 

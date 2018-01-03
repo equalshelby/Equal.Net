@@ -8,7 +8,7 @@ namespace Equal.Login.Domain
     public enum LoginType
     {
         [EnumText("普通用户")]
-        User = 1,
+        CommonUser = 1,
 
         [EnumText("合作单位用户")]
         Employee = 2

@@ -25,4 +25,14 @@ public partial class pages_login_user_edit : Page
 
         IocContainer.Get<ILoginUserDao>().Insert(user);
     }
+
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        LoginUser user = new LoginUser();
+        LoginUserCondition cond = new LoginUserCondition();
+        cond.LoginName = tbLoginName.Text;
+        user = IocContainer.Get<ILoginUserDao>().SelectTop1(cond);
+        tbLoginName.Text = user.LoginName;
+        tbPassWord.Text = user.LoginPassWord;
+    }
 }

@@ -54,7 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao\LoginUserDao.cs" />
-    <Compile Include="Domain\LoginUser\LoginType.cs" />
+    <Compile Include="Domain\CommonUser\CommonUser.cs" />
+    <Compile Include="Domain\Employee\Employee.cs" />
+    <Compile Include="Domain\Enum\SexEnum.cs" />
+    <Compile Include="Domain\Enum\LoginTypeEnum.cs" />
+    <Compile Include="Domain\Enum\UserJobTitleEnum.cs" />
+    <Compile Include="Domain\Enum\UserWorkingStateEnum.cs" />
     <Compile Include="Domain\LoginUser\LoginUser.cs" />
     <Compile Include="Domain\LoginUser\LoginUserCondition.cs" />
     <Compile Include="IDao\ILoginUserDao.cs" />
