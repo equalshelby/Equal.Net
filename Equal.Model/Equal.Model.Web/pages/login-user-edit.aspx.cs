@@ -21,7 +21,7 @@ public partial class pages_login_user_edit : Page
         user.Id = SnowFlake.GetNewId();
         user.LoginName = tbLoginName.Text.Trim();
         user.LoginPassWord = tbPassWord.Text.Trim();
-        user.LoginType = LoginType.User;
+        user.LoginType = LoginType.CommonUser;
 
         IocContainer.Get<ILoginUserDao>().Insert(user);
     }

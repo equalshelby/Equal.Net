@@ -4,14 +4,11 @@ namespace Equal.Login.Domain
 {
     /// <summary>
     /// 合作单位用户
+    /// RelatedDomain_用户类别
+    /// RelatedDomainId_用户登录名
     /// </summary>
-    public class Employee : DomainBase<int>
+    public class Employee : RelatedDomainBase<long>
     {
-        /// <summary>
-        /// 用户名
-        /// </summary>
-        public string LoginName { get; set; }
-
         /// <summary>
         /// 中文名
         /// </summary>

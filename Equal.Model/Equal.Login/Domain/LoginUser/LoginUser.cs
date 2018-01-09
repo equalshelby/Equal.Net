@@ -6,7 +6,7 @@ namespace Equal.Login.Domain
     /// <summary>
     /// 用户登录
     /// </summary>
-    public class LoginUser<T> : DomainBase<long> where T:class
+    public class LoginUser : DomainBase<long> 
     {
         /// <summary>
         /// 登录用户名
@@ -22,40 +22,6 @@ namespace Equal.Login.Domain
         /// 登录用户类别
         /// </summary>
         public LoginType LoginType { get; set; }
-
-
-        //#region
-
-        //private T _projectId;
-
-        ///// <summary>
-        ///// 要查询的所属项目Id
-        ///// </summary>
-        //public T Object
-        //{
-        //    get
-        //    {
-        //        if (_projectId != null)
-        //            return _projectId;
-        //        return new T();
-        //    }
-        //    set
-        //    {
-        //        this.Object=
-        //        _projectId = value; 
-        //    }
-        //}
-
-
-        //static void InvokeTest(Type t, params object[] args)
-        //{
-        //    Type type = typeof(Class1<>);
-        //    type = type.MakeGenericType(t);
-        //    object o = Activator.CreateInstance(type);
-        //    type.InvokeMember("Test", BindingFlags.Default | BindingFlags.InvokeMethod, null, o, args);
-        //}
-        //#endregion
-
 
         /// <summary>
         /// 昵称

@@ -53,15 +53,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\CommonUserDao.cs" />
+    <Compile Include="Dao\EmployeeDao.cs" />
     <Compile Include="Dao\LoginUserDao.cs" />
     <Compile Include="Domain\CommonUser\CommonUser.cs" />
+    <Compile Include="Domain\CommonUser\CommonUserCondition.cs" />
     <Compile Include="Domain\Employee\Employee.cs" />
+    <Compile Include="Domain\Employee\EmployeeCondition.cs" />
     <Compile Include="Domain\Enum\SexEnum.cs" />
     <Compile Include="Domain\Enum\LoginTypeEnum.cs" />
     <Compile Include="Domain\Enum\UserJobTitleEnum.cs" />
     <Compile Include="Domain\Enum\UserWorkingStateEnum.cs" />
     <Compile Include="Domain\LoginUser\LoginUser.cs" />
     <Compile Include="Domain\LoginUser\LoginUserCondition.cs" />
+    <Compile Include="IDao\ICommonUserDao.cs" />
+    <Compile Include="IDao\IEmployeeDao.cs" />
     <Compile Include="IDao\ILoginUserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Maps\LoginUser.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Maps\Employee.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Maps\CommonUser.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

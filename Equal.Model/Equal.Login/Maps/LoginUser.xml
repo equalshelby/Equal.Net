@@ -13,7 +13,7 @@
       <result property="Id" column="Lu_Id" />
       <result property="LoginName" column="Lu_LoginName" nullValue="" />
       <result property="LoginPassWord" column="Lu_LoginPassWord" nullValue="" />
-      <result property="LoginType" column="Lu_LoginType" nullValue="" />
+      <result property="LoginType" column="Lu_LoginType" />
     </resultMap>
   </resultMaps>
 

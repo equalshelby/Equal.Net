@@ -4,14 +4,11 @@ namespace Equal.Login.Domain
 {
     /// <summary>
     /// 普通用户
+    /// RelatedDomain_用户类别
+    /// RelatedDomainId_用户登录名
     /// </summary>
-    public class CommonUser : DomainBase<int>
+    public class CommonUser : RelatedDomainBase<long>
     {
-        /// <summary>
-        /// 用户名
-        /// </summary>
-        public string LoginName { get; set; }
-
         /// <summary>
         /// 中文名
         /// </summary>
@@ -48,9 +45,9 @@ namespace Equal.Login.Domain
         public string Note { get; set; }
 
         /// <summary>
-        /// 移动员工编号
+        /// 用户编号
         /// </summary>
-        public string EmployeeNumber { get; set; }
+        public string Number { get; set; }
 
         /// <summary>
         /// 工作状态
