@@ -1,5 +1,5 @@
 ﻿using Equal.CRUD.Domain;
-using System;
+using Equal.Utility;
 
 namespace Equal.Login.Domain
 {
@@ -8,6 +8,11 @@ namespace Equal.Login.Domain
     /// </summary>
     public class LoginUser : DomainBase<long> 
     {
+        public LoginUser()
+        {
+            Id = SnowFlake.GetNewId();
+        }
+
         /// <summary>
         /// 登录用户名
         /// </summary>

@@ -17,4 +17,5 @@ E:\Dong\Equal-Net\trunk\Equal.Net\Equal.Model\Equal.Login\bin\Debug\IBatisNet.Da
 E:\Dong\Equal-Net\trunk\Equal.Net\Equal.Model\Equal.Login\bin\Debug\IBatisNet.Common.dll
 E:\Dong\Equal-Net\trunk\Equal.Net\Equal.Model\Equal.Login\bin\Debug\Castle.Core.dll
 E:\Dong\Equal-Net\Equal.Model\Equal.Login\bin\Debug\Castle.Core.dll
-E:\Dong\Equal-Net\Equal.Model\Equal.Login\obj\Debug\Equal.Login.csprojResolveAssemblyReference.cache
+E:\Dong\Equal-Net\Equal.Model\Equal.Login\bin\Debug\Equal.DDD.dll
+E:\Dong\Equal-Net\Equal.Model\Equal.Login\bin\Debug\Castle.Windsor.dll

@@ -35,6 +35,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\_lib\EqualNet\Equal.CRUD.dll</HintPath>
     </Reference>
+    <Reference Include="Equal.DDD">
+      <HintPath>..\Equal.Model.Web\Bin\Equal.DDD.dll</HintPath>
+    </Reference>
     <Reference Include="Equal.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\_lib\EqualNet\Equal.Utility.dll</HintPath>
@@ -45,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +59,8 @@
   <ItemGroup>
     <Compile Include="Dao\CommonUserDao.cs" />
     <Compile Include="Dao\EmployeeDao.cs" />
+    <Compile Include="Dao\LoginSequenceDao.cs" />
+    <Compile Include="Dao\LoginTokenDao.cs" />
     <Compile Include="Dao\LoginUserDao.cs" />
     <Compile Include="Domain\CommonUser\CommonUser.cs" />
     <Compile Include="Domain\CommonUser\CommonUserCondition.cs" />
@@ -64,17 +70,25 @@
     <Compile Include="Domain\Enum\LoginTypeEnum.cs" />
     <Compile Include="Domain\Enum\UserJobTitleEnum.cs" />
     <Compile Include="Domain\Enum\UserWorkingStateEnum.cs" />
+    <Compile Include="Domain\LoginSequence\LoginSequence.cs" />
+    <Compile Include="Domain\LoginSequence\LoginSequenceCondition.cs" />
+    <Compile Include="Domain\LoginTokenNotFoundException.cs" />
+    <Compile Include="Domain\LoginToken\LoginToken.cs" />
+    <Compile Include="Domain\LoginToken\LoginTokenCondition.cs" />
     <Compile Include="Domain\LoginUser\LoginUser.cs" />
     <Compile Include="Domain\LoginUser\LoginUserCondition.cs" />
+    <Compile Include="Domain\WebLoginConstants.cs" />
     <Compile Include="IDao\ICommonUserDao.cs" />
     <Compile Include="IDao\IEmployeeDao.cs" />
+    <Compile Include="IDao\ILoginSequenceDao.cs" />
+    <Compile Include="IDao\ILoginTokenDao.cs" />
     <Compile Include="IDao\ILoginUserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Svc\LoginHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Application\" />
     <Folder Include="Domain\LoginUser\Event\" />
-    <Folder Include="Svc\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Maps\LoginUser.xml" />
@@ -84,6 +98,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Maps\CommonUser.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Maps\LoginSequence.xml" />
+    <EmbeddedResource Include="Maps\LoginToken.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

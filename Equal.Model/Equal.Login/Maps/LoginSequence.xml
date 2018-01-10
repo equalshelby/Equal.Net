@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--V1.0.17.0309-->
+<sqlMap namespace="LoginSequence"
+        xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <alias>
+    <typeAlias alias="LoginSequence" type="Equal.Login.Domain.LoginSequence, Equal.Model.Login" />
+  </alias>
+
+  <resultMaps>
+    <resultMap id="LoginSequenceResult" class="LoginSequence">
+      <result property="Id" column="Ls_Id" />
+      <result property="LoginTokenId" column="Ls_LoginTokenId" nullValue="" />
+      <result property="LoginTime" column="Ls_LoginTime" />
+      <result property="IP" column="Ls_IP" nullValue="" />
+      <result property="ServerVariables" column="Ls_ServerVariables" nullValue="" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <insert id="Insert" parameterClass="LoginSequence">
+      INSERT INTO EM_LoginSequence (Ls_Id, Ls_LoginTokenId, Ls_LoginTime, Ls_IP, Ls_ServerVariables, Ls_RecordTime)
+      VALUES (#Id#, #LoginTokenId#, #LoginTime#, #IP#, #ServerVariables#, GETDATE())
+      <selectKey resultClass="long" type="post" property="Id">
+        SELECT @@IDENTITY
+      </selectKey>
+    </insert>
+    <update id="Update" parameterClass="LoginSequence">
+      UPDATE EM_LoginSequence SET Ls_LoginTokenId = #LoginTokenId#, Ls_LoginTime = #LoginTime#, Ls_IP = #IP#, Ls_ServerVariables = #ServerVariables#, Ls_UpdateTime = GETDATE()
+      WHERE Ls_Id = #Id#
+    </update>
+    <delete id="Delete" parameterClass="hashtable">
+      DELETE FROM EM_LoginSequence
+      <include refid="SqlWhere" />
+    </delete>
+    <statement id="Truncate">
+      TRUNCATE TABLE EM_LoginSequence
+    </statement>
+
+    <sql id="SqlFrom">
+      FROM EM_LoginSequence
+      <include refid="SqlJoin" />
+    </sql>
+    <sql id="SqlWhereBase">
+      <isNotNull prepend="AND" property="Id">
+        Ls_Id = #Id#
+      </isNotNull>
+      <isNotNull prepend="AND" property="Ids">
+        <iterate open="(" close=")" conjunction="OR" property="Ids">
+          Ls_Id = $Ids[]$
+        </iterate>
+      </isNotNull>
+    </sql>
+    <sql id="SqlWhere">
+      <dynamic prepend="WHERE">
+        <include refid="SqlWhereBase" />
+        <include refid="SqlWhereCustom" />
+      </dynamic>
+    </sql>
+    <sql id="SqlOrderBy">
+      ORDER BY
+      <isNotNull property="OrderBy">
+        $OrderBy$,
+      </isNotNull>
+      <include refid="SqlOrderByCustom" />
+      Ls_Id DESC
+    </sql>
+    <select id="SelectCount" parameterClass="hashtable" resultClass="int">
+      SELECT COUNT(*)
+      <include refid="SqlFrom" />
+      <include refid="SqlWhere" />
+    </select>
+    <select id="Select" parameterClass="hashtable" resultMap="LoginSequenceResult">
+      SELECT *
+      <include refid="SqlFrom"/>
+      <include refid="SqlWhere"/>
+      <include refid="SqlOrderBy"/>
+    </select>
+    <select id="SelectTop" parameterClass="hashtable" resultMap="LoginSequenceResult">
+      SELECT TOP $TopCount$ *
+      <include refid="SqlFrom"/>
+      <include refid="SqlWhere"/>
+      <include refid="SqlOrderBy"/>
+    </select>
+    <select id="SelectByPage" parameterClass="hashtable" resultMap="LoginSequenceResult">
+      SELECT TOP $PageSize$ *
+      <include refid="SqlFrom" />
+      WHERE Ls_Id NOT IN
+      (SELECT TOP $NotInSize$ Ls_Id
+      <include refid="SqlFrom" />
+      <include refid="SqlWhere" />
+      <include refid="SqlOrderBy" />
+      )
+      <include refid="SqlWhereBase" />
+      <include refid="SqlWhereCustom" />
+      <include refid="SqlOrderBy" />
+    </select>
+
+    <!--Custom Sql Begin-->
+    <sql id="SqlJoin">
+    </sql>
+    <sql id="SqlOrderByCustom">
+    </sql>
+    <sql id="SqlWhereCustom">
+      <isNotNull prepend="AND" property="LoginTokenId">
+        Ls_LoginTokenId = #LoginTokenId#
+      </isNotNull>
+      <isNotNull prepend="AND" property="LoginTokenId_Contain">
+        Ls_LoginTokenId LIKE '%$LoginTokenId_Contain$%'
+      </isNotNull>
+      <isNotNull prepend="AND" property="LoginTime_GEQ">
+        Ls_LoginTime >= #LoginTime_GEQ#
+      </isNotNull>
+      <isNotNull prepend="AND" property="LoginTime_LSS">
+        <![CDATA[Ls_LoginTime < #LoginTime_LSS#]]>
+      </isNotNull>
+      <isNotNull prepend="AND" property="IP_Contain">
+        Ls_IP LIKE '%$IP_Contain$%'
+      </isNotNull>
+    </sql>
+    <!--Custom Sql End-->
+
+  </statements>
+
+</sqlMap>

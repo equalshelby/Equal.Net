@@ -1,4 +1,6 @@
-﻿using Equal.CRUD.Domain;
+﻿using System;
+
+using Equal.CRUD.Domain;
 
 namespace Equal.Login.Domain
 {
