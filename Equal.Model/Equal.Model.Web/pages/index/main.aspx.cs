@@ -11,4 +11,11 @@ public partial class pages_index_main : System.Web.UI.Page
     {
 
     }
+
+    protected void btn_Click(object sender, EventArgs e)
+    {
+
+            //if (Auth.IsLogin)
+            //    Response.Redirect(Nav.HomeUrl);
+    }
 }

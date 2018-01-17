@@ -20,3 +20,6 @@ E:\Dong\Equal-Net\Equal.Model\Equal.Login\bin\Debug\Castle.Core.dll
 E:\Dong\Equal-Net\Equal.Model\Equal.Login\bin\Debug\Equal.DDD.dll
 E:\Dong\Equal-Net\Equal.Model\Equal.Login\bin\Debug\Castle.Windsor.dll
 E:\Dong\Equal-Net\Equal.Model\Equal.Login\bin\Debug\Castle.Facilities.IBatisNet.dll
+E:\Dong\Equal-Net\trunk\Equal.Net\Equal.Model\Equal.Login\bin\Debug\Castle.Facilities.IBatisNet.dll
+E:\Dong\Equal-Net\trunk\Equal.Net\Equal.Model\Equal.Login\bin\Debug\Equal.DDD.dll
+E:\Dong\Equal-Net\trunk\Equal.Net\Equal.Model\Equal.Login\bin\Debug\Castle.Windsor.dll

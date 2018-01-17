@@ -65,8 +65,7 @@ public static class Auth
     {
         get
         {
-            LoginToken loginToken;
-            LoginHelper.TryGetLoginToken(out loginToken);
+            LoginToken loginToken = LoginHelper.GetLoginToken();
             return loginToken != null;
         }
     }

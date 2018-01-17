@@ -108,7 +108,7 @@ namespace Equal.Login.Svc
         {
             if (string.IsNullOrEmpty(loginTokenId))
                 return null;
-            return IocContainer.Get<ILoginTokenDao>().Select111(loginTokenId.ToLongOrDefault());
+            return IocContainer.Get<ILoginTokenDao>().SelectById(loginTokenId.ToLongOrDefault());
         }
 
         /// <summary>
