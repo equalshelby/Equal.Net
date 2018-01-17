@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace Equal.Utility.ExtensionMethod
+namespace Equal.Utility
 {
     /*该扩展方法可download到，根据自己需求修改即可*/
 
@@ -119,15 +119,15 @@ namespace Equal.Utility.ExtensionMethod
         #endregion
         #endregion
 
-        #region 解析字符串为int、double、float、decimal、DateTime、Enum
+        #region 解析字符串为int、long、double、float、decimal、DateTime、Enum
 
-        #region Int32
+        #region Int
         /// <summary>
-        /// 解析字符串为Int32?
+        /// 解析字符串为Int?
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static int? ToInt32(this string s)
+        public static int? ToInt(this string s)
         {
             if (string.IsNullOrEmpty(s))
                 return null;
@@ -138,24 +138,24 @@ namespace Equal.Utility.ExtensionMethod
         }
 
         /// <summary>
-        /// 解析字符串为Int32，如无法解析抛出异常
+        /// 解析字符串为Int，如无法解析抛出异常
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static int ToInt32Req(this string s)
+        public static int ToIntReq(this string s)
         {
-            int? i = s.ToInt32();
+            int? i = s.ToInt();
             if (!i.HasValue)
-                throw new ArgumentException(string.Format("无法将值“{0}”解析为Int32类型。"));
+                throw new ArgumentException(string.Format("无法将值“{0}”解析为Int类型。"));
             return i.Value;
         }
 
         /// <summary>
-        /// 解析字符串为Int32(默认值为0)
+        /// 解析字符串为Int(默认值为0)
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static int ToInt32OrDefault(this string s)
+        public static int ToIntOrDefault(this string s)
         {
             if (string.IsNullOrEmpty(s))
                 return default(int);//调用int构造函数,构造函数默认值为0
@@ -168,12 +168,12 @@ namespace Equal.Utility.ExtensionMethod
         }
 
         /// <summary>
-        /// 解析字符串为Int32(自定义默认值)
+        /// 解析字符串为Int(自定义默认值)
         /// </summary>
         /// <param name="t"></param>
         /// <param name="defaultValue">自定义默认值</param>
         /// <returns></returns>
-        public static int ToInt32OrDefault(this string t, int defaultValue)
+        public static int ToIntOrDefault(this string t, int defaultValue)
         {
             if (string.IsNullOrEmpty(t))
                 return defaultValue;
@@ -185,13 +185,13 @@ namespace Equal.Utility.ExtensionMethod
         }
         #endregion
 
-        #region Int64(long)
+        #region Long(long)
         /// <summary>
-        /// 解析字符串为Int64?
+        /// 解析字符串为Long?
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static long? ToInt64(this string s)
+        public static long? ToLong(this string s)
         {
             if (string.IsNullOrEmpty(s))
                 return null;
@@ -203,24 +203,24 @@ namespace Equal.Utility.ExtensionMethod
         }
 
         /// <summary>
-        /// 解析字符串为Int64，如无法解析抛出异常
+        /// 解析字符串为Long，如无法解析抛出异常
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static long ToInt64Req(this string s)
+        public static long ToLongReq(this string s)
         {
-            long? i = s.ToInt64();
+            long? i = s.ToLong();
             if (!i.HasValue)
-                throw new ArgumentException(string.Format("无法将值“{0}”解析为Int64类型。", s));
+                throw new ArgumentException(string.Format("无法将值“{0}”解析为Long类型。", s));
             return i.Value;
         }
 
         /// <summary>
-        /// 解析字符串为Int64(默认值为0)
+        /// 解析字符串为Long(默认值为0)
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public static long ToInt64OrDefault(this string s)
+        public static long ToLongOrDefault(this string s)
         {
             if (string.IsNullOrEmpty(s))
                 return default(long);//调用long构造函数
@@ -231,12 +231,12 @@ namespace Equal.Utility.ExtensionMethod
         }
 
         /// <summary>
-        /// 解析字符串为Int64(自定义默认值)
+        /// 解析字符串为Long(自定义默认值)
         /// </summary>
         /// <param name="s"></param>
         /// <param name="defaultValue">自定义默认值</param>
         /// <returns></returns>
-        public static long ToInt64OrDefault(this string s, long defaultValue)
+        public static long ToLongOrDefault(this string s, long defaultValue)
         {
             if (string.IsNullOrEmpty(s))
                 return defaultValue;

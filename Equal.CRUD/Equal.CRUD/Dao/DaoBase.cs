@@ -18,7 +18,7 @@ namespace Equal.CRUD.Dao
         }
 
         #region Insert Update Delete Truncate
-       
+
         /// <summary>
         /// 插入
         /// </summary>

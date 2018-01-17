@@ -6,7 +6,7 @@ using System.Collections.Specialized;
 
 using Equal.Login.Domain;
 using Equal.Login.IDao;
-using Equal.Utility.ExtensionMethod;
+using Equal.Utility;
 using Equal.DDD;
 
 namespace Equal.Login.Svc
@@ -45,6 +45,27 @@ namespace Equal.Login.Svc
         }
 
         /// <summary>
+        /// 注销
+        /// </summary>
+        public static void Logout()
+        {
+            //设置Session为Cancels
+            HttpContext.Current.Session.Abandon();
+
+            //设置登录令牌无效
+            if (HttpContext.Current.Request.Cookies[WebLoginConstants.LoginTokenCookies] != null)
+            {
+                string token = HttpContext.Current.Request.Cookies[WebLoginConstants.LoginTokenCookies].Value;
+                LoginToken loginToken = IocContainer.Get<ILoginTokenDao>().SelectById(token.ToLongOrDefault());
+                if (loginToken != null)
+                {
+                    loginToken.Invalid = true;
+                    IocContainer.Get<ILoginTokenDao>().Update(loginToken);
+                }
+            }
+        }
+
+        /// <summary>
         /// 登录并生成令牌
         /// </summary>
         /// <param name="loginType">登录人类型</param>
@@ -58,6 +79,9 @@ namespace Equal.Login.Svc
             loginToken.CreateTime = DateTime.Now;
             loginToken.ExpireTime = expireTime;
             loginToken.Invalid = false;
+            IocContainer.Get<ILoginTokenDao>().Insert(loginToken);
+            //新创建LoginToken时记录LoginSequence
+            RecordLoginSequence(loginToken.Id.ToString());
             return loginToken;
         }
 
@@ -74,6 +98,39 @@ namespace Equal.Login.Svc
             return null;
         }
 
+        /// <summary>
+        /// 取登录令牌
+        /// 可以为空
+        /// </summary>
+        /// <param name="loginTokenId">登录令牌Id</param>
+        /// <returns></returns>
+        public static LoginToken GetLoginToken(string loginTokenId)
+        {
+            if (string.IsNullOrEmpty(loginTokenId))
+                return null;
+            return IocContainer.Get<ILoginTokenDao>().Select111(loginTokenId.ToLongOrDefault());
+        }
+
+        /// <summary>
+        /// 取登录令牌，如为空抛出异常
+        /// </summary>
+        /// <param name="loginTokenId">登录令牌Id</param>
+        /// <returns></returns>
+        public static LoginToken GetLoginTokenReq(string loginTokenId)
+        {
+            LoginToken loginToken = GetLoginToken(loginTokenId);
+            if (loginToken == null)
+                throw new LoginTokenNotFoundException("未查询到登录令牌。");
+            return loginToken;
+        }
+
+        /// <summary>
+        /// 恢复登录令牌
+        /// 1、先从Session中恢复（LoginToken对象）
+        /// 2、若Session中没有，则从Cookies中恢复（LoginToken的Id）
+        /// </summary>
+        /// <param name="loginToken"></param>
+        /// <returns></returns>
         public static bool TryGetLoginToken(out LoginToken loginToken)
         {
             loginToken = null;
@@ -111,53 +168,6 @@ namespace Equal.Login.Svc
             }
             //Session或Cookies内都没有
             return false;
-        }
-
-        /// <summary>
-        /// 注销
-        /// </summary>
-        public static void Logout()
-        {
-            //设置Session为Cancels
-            HttpContext.Current.Session.Abandon();
-
-            //设置登录令牌无效
-            if (HttpContext.Current.Request.Cookies[WebLoginConstants.LoginTokenCookies] != null)
-            {
-                string token = HttpContext.Current.Request.Cookies[WebLoginConstants.LoginTokenCookies].Value;
-                LoginToken loginToken = IocContainer.Get<ILoginTokenDao>().SelectById(token.ToInt64OrDefault());
-                if (loginToken != null)
-                {
-                    loginToken.Invalid = true;
-                    IocContainer.Get<ILoginTokenDao>().Update(loginToken);
-                }
-            }
-        }
-
-        /// <summary>
-        /// 取登录令牌
-        /// 可以为空
-        /// </summary>
-        /// <param name="loginTokenId">登录令牌Id</param>
-        /// <returns></returns>
-        public static LoginToken GetLoginToken(string loginTokenId)
-        {
-            if (string.IsNullOrEmpty(loginTokenId))
-                return null;
-            return IocContainer.Get<ILoginTokenDao>().SelectById(loginTokenId.ToInt64OrDefault());
-        }
-
-        /// <summary>
-        /// 取登录令牌，如为空抛出异常
-        /// </summary>
-        /// <param name="loginTokenId">登录令牌Id</param>
-        /// <returns></returns>
-        public static LoginToken GetLoginTokenReq(string loginTokenId)
-        {
-            LoginToken loginToken = GetLoginToken(loginTokenId);
-            if (loginToken == null)
-                throw new LoginTokenNotFoundException("未查询到登录令牌。");
-            return loginToken;
         }
 
         /// <summary>

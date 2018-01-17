@@ -5,7 +5,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <alias>
-    <typeAlias alias="LoginSequence" type="Equal.Login.Domain.LoginSequence, Equal.Model.Login" />
+    <typeAlias alias="LoginSequence" type="Equal.Login.Domain.LoginSequence, Equal.Login" />
   </alias>
 
   <resultMaps>
@@ -23,7 +23,7 @@
       INSERT INTO EM_LoginSequence (Ls_Id, Ls_LoginTokenId, Ls_LoginTime, Ls_IP, Ls_ServerVariables, Ls_RecordTime)
       VALUES (#Id#, #LoginTokenId#, #LoginTime#, #IP#, #ServerVariables#, GETDATE())
       <selectKey resultClass="long" type="post" property="Id">
-        SELECT @@IDENTITY
+        SELECT Ls_Id FROM EM_LoginSequence WHERE Ls_Id = #Id#
       </selectKey>
     </insert>
     <update id="Update" parameterClass="LoginSequence">

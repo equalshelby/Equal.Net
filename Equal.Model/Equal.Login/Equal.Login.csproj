@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Facilities.IBatisNet">
+      <HintPath>..\Equal.Model.Web\Bin\Castle.Facilities.IBatisNet.dll</HintPath>
+    </Reference>
     <Reference Include="Equal.CRUD, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\_lib\EqualNet\Equal.CRUD.dll</HintPath>
@@ -85,6 +88,7 @@
     <Compile Include="IDao\ILoginUserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Svc\LoginHelper.cs" />
+    <Compile Include="Svc\LoginUserSvc.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Application\" />

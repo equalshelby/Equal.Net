@@ -28,7 +28,8 @@ public partial class pages_login_user_edit : Page
         LoginUser user = new LoginUser();
         LoginUserCondition cond = new LoginUserCondition();
         cond.LoginName = tbLoginName.Text;
-        user = IocContainer.Get<ILoginUserDao>().SelectTop1(cond);
+        //user = IocContainer.Get<ILoginUserDao>().SelectTop1(cond);
+        user = IocContainer.Get<ILoginUserDao>().SelectById(133126220479987712);
         tbLoginName.Text = user.LoginName;
         tbPassWord.Text = user.LoginPassWord;
     }

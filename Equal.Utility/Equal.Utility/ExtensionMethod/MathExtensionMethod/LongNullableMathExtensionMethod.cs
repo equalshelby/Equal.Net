@@ -1,9 +1,9 @@
 ﻿namespace Equal.Utility
 {
     /// <summary>
-    /// 可空Int32Math运算
+    /// 可空Int64Math运算
     /// </summary>
-    public static class Int32NullableMathExtensionMethod
+    public static class LongNullableMathExtensionMethod
     {
         /// <summary>
         /// 加，遇到null按0计算相加，若都为null，则返回null。
@@ -11,7 +11,7 @@
         /// <param name="i1"></param>
         /// <param name="i2"></param>
         /// <returns></returns>
-        public static int? Add(this int? i1, int? i2)
+        public static long? Add(this long? i1, long? i2)
         {
             if (i1.HasValue)
             {
@@ -35,7 +35,7 @@
         /// <param name="i1"></param>
         /// <param name="i2"></param>
         /// <returns></returns>
-        public static int? Sub(this int? i1, int? i2)
+        public static long? Sub(this long? i1, long? i2)
         {
             if (i1.HasValue)
             {
@@ -59,7 +59,7 @@
         /// <param name="i1"></param>
         /// <param name="i2"></param>
         /// <returns></returns>
-        public static int? Mul(this int? i1, int? i2)
+        public static long? Mul(this long? i1, long? i2)
         {
             if (i1.HasValue && i2.HasValue)
                 return i1.Value * i2.Value;
@@ -73,7 +73,7 @@
         /// <param name="i1"></param>
         /// <param name="i2"></param>
         /// <returns></returns>
-        public static int? Div(this int? i1, int? i2)
+        public static long? Div(this long? i1, long? i2)
         {
             if (i1.HasValue && i2.HasValue)
             {

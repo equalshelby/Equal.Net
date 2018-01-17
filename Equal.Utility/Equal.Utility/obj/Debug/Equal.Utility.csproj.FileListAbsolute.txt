@@ -8,3 +8,4 @@ E:\Dong\Equal-Net\Equal.Utility\Equal.Utility\bin\Debug\Equal.Utility.pdb
 E:\Dong\Equal-Net\Equal.Utility\Equal.Utility\obj\Debug\Equal.Utility.dll
 E:\Dong\Equal-Net\Equal.Utility\Equal.Utility\obj\Debug\Equal.Utility.pdb
 E:\Dong\Equal-Net\Equal.Utility\Equal.Utility\bin\Debug\Equal.Utility.dll.config
+E:\Dong\Equal-Net\Equal.Utility\Equal.Utility\obj\Debug\Equal.Utility.csprojResolveAssemblyReference.cache

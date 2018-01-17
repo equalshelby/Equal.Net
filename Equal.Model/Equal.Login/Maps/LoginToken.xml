@@ -5,7 +5,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <alias>
-    <typeAlias alias="LoginToken" type="Equal.Login.Domain.LoginToken, Equal.Model.Login" />
+    <typeAlias alias="LoginToken" type="Equal.Login.Domain.LoginToken, Equal.Login" />
   </alias>
 
   <resultMaps>
@@ -13,9 +13,9 @@
       <result property="Id" column="Lt_Id" />
       <result property="LoginType" column="Lt_LoginType" nullValue="" />
       <result property="LoginId" column="Lt_LoginId" nullValue=""/>
-      <result property="CreateTime" column="Lt_CreateTime" nullValue="" />
-      <result property="ExpireTime" column="Lt_ExpireTime" nullValue="" />
-      <result property="Invalid" column="Lt_Invalid" nullValue="" />
+      <result property="CreateTime" column="Lt_CreateTime" />
+      <result property="ExpireTime" column="Lt_ExpireTime" />
+      <result property="Invalid" column="Lt_Invalid" />
     </resultMap>
   </resultMaps>
 
@@ -24,7 +24,7 @@
       INSERT INTO EM_LoginToken (Lt_Id, Lt_LoginType, Lt_LoginId, Lt_CreateTime, Lt_ExpireTime, Lt_Invalid, Lt_RecordTime)
       VALUES (#Id#, #LoginType#, #LoginId#, #CreateTime#, #ExpireTime#, #Invalid#, GETDATE())
       <selectKey resultClass="long" type="post" property="Id">
-        SELECT @@IDENTITY
+        SELECT Lt_Id FROM EM_LoginToken WHERE Lt_Id = #Id#
       </selectKey>
     </insert>
     <update id="Update" parameterClass="LoginToken">

@@ -22,7 +22,7 @@
       INSERT INTO EM_LoginUser (Lu_Id, Lu_LoginName, Lu_LoginPassWord, Lu_LoginType, Lu_RecordTime)
       VALUES (#Id#, #LoginName#, #LoginPassWord#, #LoginType#, GETDATE())
       <selectKey resultClass="long" type="post" property="Id">
-        SELECT @@IDENTITY
+        SELECT Lu_Id FROM EM_LoginUser WHERE Lu_Id = #Id#
       </selectKey>
     </insert>
     <update id="Update" parameterClass="LoginUser">

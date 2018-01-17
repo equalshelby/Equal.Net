@@ -57,8 +57,8 @@
     <Compile Include="ExtensionMethod\MathExtensionMethod\DecimalNullableMathExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\MathExtensionMethod\DoubleNullableMathExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\MathExtensionMethod\FloatNullableMathExtensionMethod.cs" />
-    <Compile Include="ExtensionMethod\MathExtensionMethod\Int32NullableMathExtensionMethod.cs" />
-    <Compile Include="ExtensionMethod\MathExtensionMethod\Int64NullableMathExtensionMethod.cs" />
+    <Compile Include="ExtensionMethod\MathExtensionMethod\IntNullableMathExtensionMethod.cs" />
+    <Compile Include="ExtensionMethod\MathExtensionMethod\LongNullableMathExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\MathExtensionMethod\NullableMathExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\NullExtensionMethod.cs" />
     <Compile Include="ExtensionMethod\StringExtensionMethod.cs" />
@@ -66,6 +66,7 @@
     <Compile Include="Helper\EnumHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SnowFlake\SnowFlake.cs" />
+    <Compile Include="Web\Helper\ScriptHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

@@ -5,7 +5,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <alias>
-    <typeAlias alias="CommonUser" type="Equal.Login.Domain.CommonUser, Equal.Model.Login" />
+    <typeAlias alias="CommonUser" type="Equal.Login.Domain.CommonUser, Equal.Login" />
   </alias>
 
   <resultMaps>
@@ -30,7 +30,7 @@
       INSERT INTO EM_CommonUser (Cu_Id, Cu_RelatedDomain, Cu_RelatedDomainId, Cu_ChineseName, Cu_Sex, Cu_Department, Cu_JobTitle, Cu_Mobile, Cu_Email, Cu_Note, Cu_Number, Cu_WorkingState, Cu_RecordTime)
       VALUES (#Id#, #RelatedDomain#, #RelatedDomainId#, #ChineseName#, #Sex#, #Department#, #JobTitle#, #Mobile#, #Email#, #Note#, #Number#, #WorkingState#, GETDATE())
       <selectKey resultClass="long" type="post" property="Id">
-        SELECT @@IDENTITY
+        SELECT Cu_Id FROM EM_CommonUser WHERE Cu_Id = #Id#
       </selectKey>
     </insert>
     <update id="Update" parameterClass="CommonUser">

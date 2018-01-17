@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 using Equal.CRUD.Dao;
 using Equal.CRUD.Domain;
@@ -47,6 +48,19 @@ namespace Equal.Login.Dao
             if (cond.Invalid.HasValue)
                 ht.Add("Invalid", cond.Invalid.Value);
             return ht;
+        }
+
+        public LoginToken Select111(long id)
+        {
+            //如果id为string类型，不加此判断传递null查询会返回结果
+            if (id == null)
+                return null;
+
+            Hashtable ht = new Hashtable { { SqlMapConstants.IdParam, id } };
+
+            //return SelectSingle(ht);
+            return _sqlMapper.QueryForObject<LoginToken>(
+            GetStatementIdWithNamespace(SqlMapConstants.SelectStatementId), ht);
         }
     }
 }

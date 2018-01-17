@@ -5,7 +5,7 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <alias>
-    <typeAlias alias="Employee" type="Equal.Login.Domain.Employee, Equal.Model.Login" />
+    <typeAlias alias="Employee" type="Equal.Login.Domain.Employee, Equal.Login" />
   </alias>
 
   <resultMaps>
@@ -25,7 +25,7 @@
       INSERT INTO EM_Employee (E_Id, E_RelatedDomain, E_RelatedDomainId, E_ChineseName, E_Mobile, E_Email, E_WorkingState, E_RecordTime)
       VALUES (#Id#, #RelatedDomain#, #RelatedDomainId#, #ChineseName#, #Mobile#, #Email#, #WorkingState#, GETDATE())
       <selectKey resultClass="long" type="post" property="Id">
-        SELECT @@IDENTITY
+        SELECT E_Id FROM EM_Employee WHERE E_Id = #Id#
       </selectKey>
     </insert>
     <update id="Update" parameterClass="Employee">

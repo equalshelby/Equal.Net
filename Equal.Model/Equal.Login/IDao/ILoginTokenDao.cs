@@ -8,5 +8,6 @@ namespace Equal.Login.IDao
     /// </summary>
     public interface ILoginTokenDao : IDaoBase<LoginToken, long>
     {
+        LoginToken Select111(long id);
     }
 }

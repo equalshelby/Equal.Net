@@ -1,16 +1,14 @@
-﻿using System;
-
+﻿
 using Equal.DDD;
 using Equal.Login.Domain;
 using Equal.Login.IDao;
 using Equal.Login.Svc;
-using Equal.Utility.ExtensionMethod;
 using Equal.Utility;
 
 /// <summary>
 /// 公共认证类
 /// </summary>
-public static partial class Auth
+public static class Auth
 {
 
     /// <summary>
@@ -25,6 +23,8 @@ public static partial class Auth
 
         //WebMessageHelper.ShowUnBack("未登录或由于闲置时间太长，登录会话已结束，请重新登录。");
     }
+
+    #region LoginTokenProperty
 
     /// <summary>
     /// 获取当前登录类型，未登录时会转到登录页面
@@ -71,16 +71,20 @@ public static partial class Auth
         }
     }
 
+    #endregion
+
+    #region LoginUserMethod
+
     /// <summary>
-    /// 获取登录用户的企业员工，如未登录返回null
+    /// 获取登录用户，如未登录返回null
     /// </summary>
-    public static LoginUser GetEmployee()
+    public static LoginUser GetLoginUser()
     {
         LoginToken token = LoginHelper.GetLoginToken();
         if (token == null)
             return null;
 
-        long? id = token.LoginId.ToInt64();
+        long? id = token.LoginId.ToLong();
         if (!id.HasValue)
             return null;
 
@@ -91,8 +95,26 @@ public static partial class Auth
 
         if (loginUser.Disabled)
             return null;
-        return null;
-        //return employee;
+        return loginUser;
     }
 
+    /// <summary>
+    /// 登录
+    /// </summary>
+    /// <param name="loginUser"></param>
+    /// <param name="remember"></param>
+    public static void Login(LoginUser loginUser, bool remember)
+    {
+        LoginHelper.Login(loginUser.LoginType.ToString(), loginUser.Id.ToString(), remember);
+    }
+
+    /// <summary>
+    /// 注销
+    /// </summary>
+    public static void Logout()
+    {
+        LoginHelper.Logout();
+    }
+
+    #endregion
 }
