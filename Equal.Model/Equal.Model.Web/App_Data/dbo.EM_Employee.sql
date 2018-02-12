@@ -1,0 +1,29 @@
+USE [Equal_Net]
+GO
+
+/****** Object:  Table [dbo].[EM_Employee]    Script Date: 2018.1.18 8:53:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[EM_Employee](
+	[E_Id] [BIGINT] NOT NULL,
+	[E_RelatedDomain] [NVARCHAR](50) NULL,
+	[E_RelatedDomainId] [NVARCHAR](50) NULL,
+	[E_ChineseName] [NVARCHAR](50) NULL,
+	[E_Mobile] [NVARCHAR](50) NULL,
+	[E_Email] [NVARCHAR](50) NULL,
+	[E_WorkingState] [INT] NOT NULL,
+	[E_RecordTime] [DATETIME] NOT NULL,
+	[E_UpdateTime] [DATETIME] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[E_Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
