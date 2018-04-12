@@ -1,0 +1,5 @@
+E:\Dong\Equal-Net\Equal.Tool\Equal.Custom.Controls\bin\Debug\Equal.Custom.Controls.dll
+E:\Dong\Equal-Net\Equal.Tool\Equal.Custom.Controls\bin\Debug\Equal.Custom.Controls.pdb
+E:\Dong\Equal-Net\Equal.Tool\Equal.Custom.Controls\obj\Debug\Equal.Custom.Controls.csprojResolveAssemblyReference.cache
+E:\Dong\Equal-Net\Equal.Tool\Equal.Custom.Controls\obj\Debug\Equal.Custom.Controls.dll
+E:\Dong\Equal-Net\Equal.Tool\Equal.Custom.Controls\obj\Debug\Equal.Custom.Controls.pdb

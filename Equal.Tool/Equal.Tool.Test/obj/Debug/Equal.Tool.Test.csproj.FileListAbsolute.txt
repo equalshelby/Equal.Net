@@ -1,0 +1,11 @@
+E:\Dong\Equal-Net\Equal.Tool\Equal.Tool.Test\bin\Debug\Equal.Tool.Test.exe.config
+E:\Dong\Equal-Net\Equal.Tool\Equal.Tool.Test\bin\Debug\Equal.Tool.Test.exe
+E:\Dong\Equal-Net\Equal.Tool\Equal.Tool.Test\bin\Debug\Equal.Tool.Test.pdb
+E:\Dong\Equal-Net\Equal.Tool\Equal.Tool.Test\obj\Debug\Equal.Tool.Test.csprojResolveAssemblyReference.cache
+E:\Dong\Equal-Net\Equal.Tool\Equal.Tool.Test\obj\Debug\Equal.Tool.Test.Properties.Resources.resources
+E:\Dong\Equal-Net\Equal.Tool\Equal.Tool.Test\obj\Debug\Equal.Tool.Test.csproj.GenerateResource.Cache
+E:\Dong\Equal-Net\Equal.Tool\Equal.Tool.Test\obj\Debug\Equal.Tool.Test.exe
+E:\Dong\Equal-Net\Equal.Tool\Equal.Tool.Test\obj\Debug\Equal.Tool.Test.pdb
+E:\Dong\Equal-Net\Equal.Tool\Equal.Tool.Test\bin\Debug\Equal.Custom.Controls.dll
+E:\Dong\Equal-Net\Equal.Tool\Equal.Tool.Test\bin\Debug\Equal.Custom.Controls.pdb
+E:\Dong\Equal-Net\Equal.Tool\Equal.Tool.Test\obj\Debug\Equal.Tool.Test.Form1.resources
