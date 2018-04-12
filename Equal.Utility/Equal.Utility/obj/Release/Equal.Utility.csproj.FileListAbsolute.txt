@@ -1,5 +1,0 @@
-E:\Dong\Equal-Net\Equal.Utility\Equal.Utility\bin\Release\Equal.Utility.dll
-E:\Dong\Equal-Net\Equal.Utility\Equal.Utility\bin\Release\Equal.Utility.pdb
-E:\Dong\Equal-Net\Equal.Utility\Equal.Utility\obj\Release\Equal.Utility.dll
-E:\Dong\Equal-Net\Equal.Utility\Equal.Utility\obj\Release\Equal.Utility.pdb
-E:\Dong\Equal-Net\Equal.Utility\Equal.Utility\bin\Release\Equal.Utility.dll.config
