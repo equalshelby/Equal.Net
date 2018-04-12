@@ -1,0 +1,9 @@
+E:\Dong\Equal-Net\Equal.Model\Equal.Test\bin\Debug\Equal.Test.exe.config
+E:\Dong\Equal-Net\Equal.Model\Equal.Test\bin\Debug\Equal.Test.exe
+E:\Dong\Equal-Net\Equal.Model\Equal.Test\bin\Debug\Equal.Test.pdb
+E:\Dong\Equal-Net\Equal.Model\Equal.Test\obj\Debug\Equal.Test.csprojResolveAssemblyReference.cache
+E:\Dong\Equal-Net\Equal.Model\Equal.Test\obj\Debug\Equal.Test.Form1.resources
+E:\Dong\Equal-Net\Equal.Model\Equal.Test\obj\Debug\Equal.Test.Properties.Resources.resources
+E:\Dong\Equal-Net\Equal.Model\Equal.Test\obj\Debug\Equal.Test.csproj.GenerateResource.Cache
+E:\Dong\Equal-Net\Equal.Model\Equal.Test\obj\Debug\Equal.Test.exe
+E:\Dong\Equal-Net\Equal.Model\Equal.Test\obj\Debug\Equal.Test.pdb

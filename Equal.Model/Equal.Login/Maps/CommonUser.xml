@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--V1.0.17.0309-->
+<sqlMap namespace="CommonUser"
+        xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <alias>
+    <typeAlias alias="CommonUser" type="Equal.Login.Domain.CommonUser, Equal.Login" />
+  </alias>
+
+  <resultMaps>
+    <resultMap id="CommonUserResult" class="CommonUser">
+      <result property="Id" column="Cu_Id" />
+      <result property="RelatedDomain" column="Cu_RelatedDomain" nullValue="" />
+      <result property="RelatedDomainId" column="Cu_RelatedDomainId" nullValue="" />
+      <result property="ChineseName" column="Cu_ChineseName" nullValue="" />
+      <result property="Sex" column="Cu_Sex" />
+      <result property="Department" column="Cu_Department" nullValue="" />
+      <result property="JobTitle" column="Cu_JobTitle" />
+      <result property="Mobile" column="Cu_Mobile" nullValue="" />
+      <result property="Email" column="Cu_Email" nullValue="" />
+      <result property="Note" column="Cu_Note" nullValue="" />
+      <result property="Number" column="Cu_Number" nullValue="" />
+      <result property="WorkingState" column="Cu_WorkingState" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <insert id="Insert" parameterClass="CommonUser">
+      INSERT INTO EM_CommonUser (Cu_Id, Cu_RelatedDomain, Cu_RelatedDomainId, Cu_ChineseName, Cu_Sex, Cu_Department, Cu_JobTitle, Cu_Mobile, Cu_Email, Cu_Note, Cu_Number, Cu_WorkingState, Cu_RecordTime)
+      VALUES (#Id#, #RelatedDomain#, #RelatedDomainId#, #ChineseName#, #Sex#, #Department#, #JobTitle#, #Mobile#, #Email#, #Note#, #Number#, #WorkingState#, GETDATE())
+      <selectKey resultClass="long" type="post" property="Id">
+        SELECT Cu_Id FROM EM_CommonUser WHERE Cu_Id = #Id#
+      </selectKey>
+    </insert>
+    <update id="Update" parameterClass="CommonUser">
+      UPDATE EM_CommonUser SET Cu_RelatedDomain = #RelatedDomain#, Cu_RelatedDomainId = #RelatedDomainId#, Cu_ChineseName = #ChineseName#, Cu_Sex = #Sex#, Cu_Department = #Department#, Cu_JobTitle = #JobTitle#, Cu_Mobile = #Mobile#, Cu_Email = #Email#, Cu_Note = #Note#, Cu_Number = #Number#, Cu_WorkingState = #WorkingState#, Cu_UpdateTime = GETDATE()
+      WHERE Cu_Id = #Id#
+    </update>
+    <delete id="Delete" parameterClass="hashtable">
+      DELETE FROM EM_CommonUser
+      <include refid="SqlWhere" />
+    </delete>
+    <statement id="Truncate">
+      TRUNCATE TABLE EM_CommonUser
+    </statement>
+
+    <sql id="SqlFrom">
+      FROM EM_CommonUser
+      <include refid="SqlJoin" />
+    </sql>
+    <sql id="SqlWhereBase">
+      <isNotNull prepend="AND" property="Id">
+        Cu_Id = #Id#
+      </isNotNull>
+      <isNotNull prepend="AND" property="Ids">
+        <iterate open="(" close=")" conjunction="OR" property="Ids">
+          Cu_Id = $Ids[]$
+        </iterate>
+      </isNotNull>
+    </sql>
+    <sql id="SqlWhere">
+      <dynamic prepend="WHERE">
+        <include refid="SqlWhereBase" />
+        <isNotNull prepend="AND" property="RelatedDomain">
+          <isNotEmpty property="RelatedDomain">
+            Cu_RelatedDomain = #RelatedDomain#
+          </isNotEmpty>
+          <isEmpty property="RelatedDomain">
+            (Cu_RelatedDomain = '' OR Cu_RelatedDomain IS NULL)
+          </isEmpty>
+        </isNotNull>
+        <isNotNull prepend="AND" property="RelatedDomainId">
+          <isNotEmpty property="RelatedDomainId">
+            Cu_RelatedDomainId = #RelatedDomainId#
+          </isNotEmpty>
+          <isEmpty property="RelatedDomainId">
+            (Cu_RelatedDomainId = '' OR Cu_RelatedDomainId IS NULL)
+          </isEmpty>
+        </isNotNull>
+        <isNotNull prepend="AND" property="RelatedDomainIds">
+          <iterate open="(" close=")" conjunction="OR" property="RelatedDomainIds">
+            Cu_RelatedDomainId = '$RelatedDomainIds[]$'
+          </iterate>
+        </isNotNull>
+        <include refid="SqlWhereCustom" />
+      </dynamic>
+    </sql>
+    <sql id="SqlOrderBy">
+      ORDER BY
+      <isNotNull property="OrderBy">
+        $OrderBy$,
+      </isNotNull>
+      <include refid="SqlOrderByCustom" />
+      Cu_Id DESC
+    </sql>
+    <select id="SelectCount" parameterClass="hashtable" resultClass="int">
+      SELECT COUNT(*)
+      <include refid="SqlFrom" />
+      <include refid="SqlWhere" />
+    </select>
+    <select id="Select" parameterClass="hashtable" resultMap="CommonUserResult">
+      SELECT *
+      <include refid="SqlFrom"/>
+      <include refid="SqlWhere"/>
+      <include refid="SqlOrderBy"/>
+    </select>
+    <select id="SelectTop" parameterClass="hashtable" resultMap="CommonUserResult">
+      SELECT TOP $TopCount$ *
+      <include refid="SqlFrom"/>
+      <include refid="SqlWhere"/>
+      <include refid="SqlOrderBy"/>
+    </select>
+    <select id="SelectByPage" parameterClass="hashtable" resultMap="CommonUserResult">
+      SELECT TOP $PageSize$ *
+      <include refid="SqlFrom" />
+      WHERE Cu_Id NOT IN
+      (SELECT TOP $NotInSize$ Cu_Id
+      <include refid="SqlFrom" />
+      <include refid="SqlWhere" />
+      <include refid="SqlOrderBy" />
+      )
+      <include refid="SqlWhereBase" />
+      <include refid="SqlWhereCustom" />
+      <include refid="SqlOrderBy" />
+    </select>
+    <!--RelatedDomainBase-->
+    <update id="UpdateRelated" parameterClass="hashtable">
+      UPDATE EM_CommonUser SET Cu_RelatedDomain = #UpdateRelatedDomain#, Cu_RelatedDomainId = #UpdateRelatedDomainId#
+      <include refid="SqlWhere" />
+    </update>
+
+    <!--Custom Sql Begin-->
+    <sql id="SqlJoin">
+    </sql>
+    <sql id="SqlOrderByCustom">
+    </sql>
+    <sql id="SqlWhereCustom">
+    </sql>
+    <!--Custom Sql End-->
+
+  </statements>
+
+</sqlMap>
