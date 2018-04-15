@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equal.Custom.Controls", "Eq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equal.Tool.Test", "Equal.Tool.Test\Equal.Tool.Test.csproj", "{BB12FA9A-B29D-42D7-9A5D-950AB875E7BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equal.Console.Test", "Equal.Console.Test\Equal.Console.Test.csproj", "{4EF659BF-A6B8-41FD-8540-B66B358A85C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BB12FA9A-B29D-42D7-9A5D-950AB875E7BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB12FA9A-B29D-42D7-9A5D-950AB875E7BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB12FA9A-B29D-42D7-9A5D-950AB875E7BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EF659BF-A6B8-41FD-8540-B66B358A85C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EF659BF-A6B8-41FD-8540-B66B358A85C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EF659BF-A6B8-41FD-8540-B66B358A85C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EF659BF-A6B8-41FD-8540-B66B358A85C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

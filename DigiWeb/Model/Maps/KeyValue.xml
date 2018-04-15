@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--V1.0.17.0309-->
+<sqlMap namespace="KeyValue"
+        xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <alias>
+    <typeAlias alias="KeyValue" type="Model.Domain.KeyValue, Model" />
+  </alias>
+
+  <resultMaps>
+    <resultMap id="KeyValueResult" class="KeyValue">
+      <result property="Id" column="Kv_Id" />
+      <result property="Key" column="Kv_Key" nullValue="" />
+      <result property="Value" column="Kv_Value" nullValue=""/>
+      <result property="AdditionalData" column="Kv_AdditionalData" nullValue="" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <insert id="Insert" parameterClass="KeyValue">
+      INSERT INTO BM_KeyValue (Kv_Id, Kv_Key, Kv_Value, Kv_AdditionalData, Kv_RecordTime)
+      VALUES (#Id#, #Key#, #Value#, #AdditionalData#, GETDATE())
+      <selectKey resultClass="long" type="post" property="Id">
+        SELECT Kv_Id FROM BM_KeyValue WHERE Kv_Id = #Id#
+      </selectKey>
+    </insert>
+    <update id="Update" parameterClass="KeyValue">
+      UPDATE BM_KeyValue SET Kv_Key = #Key#, Kv_Value = #Value#, Kv_AdditionalData = #AdditionalData#, Kv_UpdateTime = GETDATE()
+      WHERE Kv_Id = #Id#
+    </update>
+    <delete id="Delete" parameterClass="hashtable">
+      DELETE FROM BM_KeyValue
+      <include refid="SqlWhere" />
+    </delete>
+    <statement id="Truncate">
+      TRUNCATE TABLE BM_KeyValue
+    </statement>
+
+    <sql id="SqlFrom">
+      FROM BM_KeyValue
+      <include refid="SqlJoin" />
+    </sql>
+    <sql id="SqlWhereBase">
+      <isNotNull prepend="AND" property="Id">
+        Kv_Id = #Id#
+      </isNotNull>
+      <isNotNull prepend="AND" property="Ids">
+        <iterate open="(" close=")" conjunction="OR" property="Ids">
+          Kv_Id = $Ids[]$
+        </iterate>
+      </isNotNull>
+    </sql>
+    <sql id="SqlWhere">
+      <dynamic prepend="WHERE">
+        <include refid="SqlWhereBase" />
+        <include refid="SqlWhereCustom" />
+      </dynamic>
+    </sql>
+    <sql id="SqlOrderBy">
+      ORDER BY
+      <isNotNull property="OrderBy">
+        $OrderBy$,
+      </isNotNull>
+      <include refid="SqlOrderByCustom" />
+      Kv_Id DESC
+    </sql>
+    <select id="SelectCount" parameterClass="hashtable" resultClass="int">
+      SELECT COUNT(*)
+      <include refid="SqlFrom" />
+      <include refid="SqlWhere" />
+    </select>
+    <select id="Select" parameterClass="hashtable" resultMap="KeyValueResult">
+      SELECT *
+      <include refid="SqlFrom"/>
+      <include refid="SqlWhere"/>
+      <include refid="SqlOrderBy"/>
+    </select>
+    <select id="SelectTop" parameterClass="hashtable" resultMap="KeyValueResult">
+      SELECT TOP $TopCount$ *
+      <include refid="SqlFrom"/>
+      <include refid="SqlWhere"/>
+      <include refid="SqlOrderBy"/>
+    </select>
+    <select id="SelectByPage" parameterClass="hashtable" resultMap="KeyValueResult">
+      SELECT TOP $PageSize$ *
+      <include refid="SqlFrom" />
+      WHERE Kv_Id NOT IN
+      (SELECT TOP $NotInSize$ Kv_Id
+      <include refid="SqlFrom" />
+      <include refid="SqlWhere" />
+      <include refid="SqlOrderBy" />
+      )
+      <include refid="SqlWhereBase" />
+      <include refid="SqlWhereCustom" />
+      <include refid="SqlOrderBy" />
+    </select>
+
+    <!--Custom Sql Begin-->
+    <sql id="SqlJoin">
+    </sql>
+    <sql id="SqlOrderByCustom">
+    </sql>
+    <sql id="SqlWhereCustom">
+      <isNotNull prepend="AND" property="Key">
+        Kv_Key = #Key#
+      </isNotNull>
+      <isNotNull prepend="AND" property="AdditionalData">
+        Kv_AdditionalData = #AdditionalData#
+      </isNotNull>
+    </sql>
+    <!--Custom Sql End-->
+
+  </statements>
+
+</sqlMap>

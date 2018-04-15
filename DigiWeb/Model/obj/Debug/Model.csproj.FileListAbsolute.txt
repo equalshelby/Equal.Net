@@ -1,0 +1,12 @@
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\bin\Debug\Model.dll
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\bin\Debug\Model.pdb
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\bin\Debug\Castle.Core.dll
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\bin\Debug\Castle.Facilities.IBatisNet.dll
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\bin\Debug\Castle.Windsor.dll
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\bin\Debug\Equal.CRUD.dll
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\bin\Debug\Equal.DDD.dll
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\bin\Debug\Equal.Utility.dll
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\bin\Debug\IBatisNet.Common.dll
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\bin\Debug\IBatisNet.DataMapper.dll
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\obj\Debug\Model.dll
+C:\Users\Zhang\Downloads\DigiWeb\DigiWeb\Model\obj\Debug\Model.pdb

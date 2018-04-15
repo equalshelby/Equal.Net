@@ -1,0 +1,43 @@
+﻿/*form table*/
+table.form-table {
+    border: solid 1px #d9d9d9;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    table.form-table td {
+        padding: 3px;
+        border-bottom: dotted 1px #d9d9d9;
+        vertical-align: middle;
+        line-height: 18px;
+    }
+
+    table.form-table table td {
+        border: 0px;
+    }
+
+    table.form-table td.lbl {
+        padding-left: 6px;
+        white-space: nowrap;
+        border-right: dotted 1px #cccccc;
+        border-left: dotted 1px #cccccc;
+        background-color: #f7f7f7;
+        padding-right: 24px;
+        width: 100px !important;
+    }
+
+table.multi-columns td {
+    border-right: dotted 1px #cccccc;
+}
+
+table.form-table td.left-border {
+    border-left: dotted 1px #cccccc;
+}
+div.header {
+    font-weight: bold;
+    font-size: 20px;
+    color:#454443;
+    padding-left: 5px;
+    border-bottom: solid 1px #d9d9d9;
+    margin-bottom: 5px;
+}

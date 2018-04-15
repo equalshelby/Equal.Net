@@ -1,0 +1,91 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="HomeMasterPage.master.cs" Inherits="pages_HomeMasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- Bootstrap -->
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link href="../css/items.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdn.bootcss.com/respond.../js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- common-header  -->
+        <div class="common-header clearfix">
+            <!-- common-header-top -->
+            <div class="common-header-top">
+                <div class="wrap clearfix">
+                    <h3>欢迎访问科捷物流校园招聘网!</h3>
+                    <div class="common-list fr">
+                        <ul>
+                            <li><a href="#">加入收藏</a>|</li>
+                            <li><a href="#">设为首页</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- common-header-top -->
+            <!--common-header-bottom -->
+            <div class="common-header-bottom clearfix">
+                <div class="wrap clearfix">
+                    <h1 class="logo fl">
+                        <img src="../images/logo.png" width="226" height="44" alt=""/>
+                    </h1>
+                    <div class="nav-list fr">
+                        <ul id="lblKeyValueData" runat="server">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--common-header-bottom -->
+        </div>
+        <!-- common-header  -->
+        <div>
+            <asp:ContentPlaceHolder ID="content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="common-footer clearfix">
+            <div class="wrap clearfix">
+                <ul id="lblKeyValueDateFooter" runat="server" class="common-footer-list">
+                </ul>
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="../images/logo_footer.png" alt="" />
+                    </div>
+                    <div class="footer-info-cont">
+                        <p>公司地址:江苏省昆山市玉山镇城北富士康路&nbsp;&nbsp;&nbsp;&nbsp;企业邮箱：test@test688.com</p>
+                        <p>电话热线：4000-888-888&nbsp;&nbsp;&nbsp;&nbsp;传真：020-3333-3333</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="common-footer-copy">
+                <p>科捷物流权所有 Copyright © 2017 jobs.digitalchina.ourats.com All rights reserved.   京ICP备15035792号-1</p>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script type="text/javascript" src="../js/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.SuperSlide.2.1.1.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../js/bootstrap.min.js"></script>
+    </form>
+</body>
+</html>
