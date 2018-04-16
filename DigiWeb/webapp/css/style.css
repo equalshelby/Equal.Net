@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 @import "common.css";
 /* index-main */
 .index-main .index-banner {
@@ -77,7 +77,7 @@
   padding-right: 15px;
 }
 .index-main .index-container .index-list-right .index-right-cont .subLi .list {
-  width: 195px;
+  width: 390px;
   float: left;
 }
 .index-main .index-container .index-list-right .index-right-cont .subLi .list h3 {

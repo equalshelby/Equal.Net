@@ -32,7 +32,7 @@
             <!-- common-header-top -->
             <div class="common-header-top">
                 <div class="wrap clearfix">
-                    <h3>欢迎访问科捷物流校园招聘网!</h3>
+                    <h3><asp:Label ID="lblWelcome" runat="server"></asp:Label></h3>
                     <div class="common-list fr">
                         <ul>
                             <li><a href="#">加入收藏</a>|</li>
@@ -66,19 +66,20 @@
             <div class="wrap clearfix">
                 <ul id="lblKeyValueDateFooter" runat="server" class="common-footer-list">
                 </ul>
+                <br />
                 <div class="footer-info">
                     <div class="footer-logo">
                         <img src="../images/logo_footer.png" alt="" />
                     </div>
                     <div class="footer-info-cont">
-                        <p>公司地址:江苏省昆山市玉山镇城北富士康路&nbsp;&nbsp;&nbsp;&nbsp;企业邮箱：test@test688.com</p>
-                        <p>电话热线：4000-888-888&nbsp;&nbsp;&nbsp;&nbsp;传真：020-3333-3333</p>
+                        <p>公司地址:<asp:Label ID="lblAddress" runat="server"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;企业邮箱：<asp:Label ID="lblEmail" runat="server"></asp:Label></p>
+                        <p>电话热线：<asp:Label ID="lblPhone1" runat="server"></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;传真：<asp:Label ID="lblPhone2" runat="server"></asp:Label></p>
                     </div>
                 </div>
 
             </div>
             <div class="common-footer-copy">
-                <p>科捷物流权所有 Copyright © 2017 jobs.digitalchina.ourats.com All rights reserved.   京ICP备15035792号-1</p>
+                <p><asp:Label ID="lblCopyrightInfo" runat="server"></asp:Label></p>
             </div>
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

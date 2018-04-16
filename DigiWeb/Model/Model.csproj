@@ -64,9 +64,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\ArticleInfoDao.cs" />
+    <Compile Include="Dao\HomePageInfoDao.cs" />
     <Compile Include="Dao\KeyValueDao.cs" />
+    <Compile Include="Domain\ArticleInfo.cs" />
+    <Compile Include="Domain\ArticleInfoCondition.cs" />
+    <Compile Include="Domain\ArticleInfoEnum.cs" />
+    <Compile Include="Domain\HomePageInfo.cs" />
+    <Compile Include="Domain\HomePageInfoCondition.cs" />
     <Compile Include="Domain\KeyValue.cs" />
     <Compile Include="Domain\KeyValueCondition.cs" />
+    <Compile Include="IDao\IArticleInfoDao.cs" />
+    <Compile Include="IDao\IHomePageInfoDao.cs" />
     <Compile Include="IDao\IKeyValueDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -75,6 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Maps\KeyValue.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Maps\HomePageInfo.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Maps\ArticleInfo.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

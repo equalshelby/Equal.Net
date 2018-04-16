@@ -24,6 +24,27 @@
                     </td>
                 </tr>
                 <tr>
+                    <td class="lbl">发布类型
+                    </td>
+                    <td>
+                        <asp:DropDownList ID="ddlType" runat="server">
+                            <asp:ListItem Text ="类型1" Value="1"></asp:ListItem>
+                            <asp:ListItem Text ="类型2" Value="2"></asp:ListItem>
+                            <asp:ListItem Text ="类型3" Value="3"></asp:ListItem>
+                            <asp:ListItem Text ="类型4" Value="4"></asp:ListItem>
+                            <asp:ListItem Text ="类型5" Value="5"></asp:ListItem>
+                            <asp:ListItem Text ="类型6" Value="6"></asp:ListItem>
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lbl">点击量
+                    </td>
+                    <td>
+                        <asp:TextBox ID="tbClickCount" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
                     <td class="lbl">发布者
                     </td>
                     <td>
@@ -35,7 +56,11 @@
                     </td>
                     <td>
                         <CKEditor:CKEditorControl ID="tbContext" runat="server"></CKEditor:CKEditorControl>
-                        <asp:HiddenField />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center">
+                        <asp:Button ID="btnSave" runat="server" Text="保存" OnClick="btnSave_Click" ></asp:Button>
                     </td>
                 </tr>
             </table>
