@@ -12,27 +12,27 @@
             </div>
             <div class="answer-list clearfix">
                 <div class="answer-li">
-                    <table>
+                    <table class="form-table">
                         <tr>
                             <td class="lbl">标识</td>
                             <td>
-                                <asp:TextBox ID="tbKey" runat="server" CssClass="width-long"></asp:TextBox>
+                                <asp:TextBox ID="tbKey" runat="server" Width="500"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="lbl">内容</td>
                             <td>
-                                <asp:TextBox ID="tbValue" runat="server" CssClass="width-long"></asp:TextBox>
+                                <asp:TextBox ID="tbValue" runat="server" Width="500"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="lbl">类型</td>
                             <td>
-                                <asp:TextBox ID="tbType" runat="server" CssClass="width-long"></asp:TextBox>
+                                <asp:TextBox ID="tbType" runat="server" Width="500"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">
+                            <td colspan="2" style="text-align:center">
                                 <asp:Button ID="btnSave" runat="server" Text ="保存" OnClick="btnSave_Click"></asp:Button>
                             </td>
                         </tr>

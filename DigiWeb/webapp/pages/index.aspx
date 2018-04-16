@@ -18,7 +18,7 @@
                 <div class="index-list-title">
                     <h3>
                         <img src="../images/index_title_zw.jpg" alt="" /></h3>
-                    <a href="#">
+                    <a href="manager-news-list.aspx">
                         <img src="../images/index_title_more.jpg" alt="" /></a>
                 </div>
                 <div class="index-left-cont clearfix">
@@ -29,7 +29,7 @@
                 <div class="index-list-title">
                     <h3>
                         <img src="../images/index_title_zw.jpg" alt="" /></h3>
-                    <a href="#">
+                    <a href="manager-news-list.aspx">
                         <img src="../images/index_title_more.jpg" alt="" /></a>
                 </div>
                 <div class="index-left-cont clearfix">
@@ -43,7 +43,7 @@
                 <div class="index-list-title">
                     <h3>
                         <img src="../images/index_title_zw.jpg" alt="" /></h3>
-                    <a href="#">
+                    <a href="manager-news-list.aspx">
                         <img src="../images/index_title_more.jpg" alt="" /></a>
                 </div>
                 <div class="index-right-cont clearfix">
@@ -60,7 +60,7 @@
                 <div class="index-list-title">
                     <h3>
                         <img src="../images/index_title_zw.jpg" alt="" /></h3>
-                    <a href="#">
+                    <a href="manager-news-list.aspx">
                         <img src="../images/index_title_more.jpg" alt="" /></a>
                 </div>
                 <div class="index-right-cont clearfix">

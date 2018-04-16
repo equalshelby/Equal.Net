@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Equal.DDD;
@@ -6,7 +9,7 @@ using Equal.Utility;
 using Model.Domain;
 using Model.IDao;
 
-public partial class pages_manager_news_list : Page
+public partial class pages_manager_key_value_list : Page
 {
     private bool? RequestFlag
     {
@@ -26,8 +29,8 @@ public partial class pages_manager_news_list : Page
 
     private void BindData()
     {
-        ArticleInfoCondition condition = new ArticleInfoCondition();
-        IArticleInfoDao dao = IocContainer.Get<IArticleInfoDao>();
+        KeyValueCondition condition = new KeyValueCondition();
+        IKeyValueDao dao = IocContainer.Get<IKeyValueDao>();
         anp.RecordCount = dao.SelectCount(condition);
         gv.DataSource = dao.SelectByPage(anp.StartRecordIndex, anp.PageSize, condition);
         gv.DataBind();
@@ -37,34 +40,29 @@ public partial class pages_manager_news_list : Page
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
-            Label ilblTitle = (Label)e.Row.FindControl("ilblTitle");
-            Label ilblSubmitTime = (Label)e.Row.FindControl("ilblSubmitTime");
-            Label ilblSubmitUser = (Label)e.Row.FindControl("ilblSubmitUser");
-            Label ilblClickCount = (Label)e.Row.FindControl("ilblClickCount");
+            Label ilblKey = (Label)e.Row.FindControl("ilblKey");
+            Label ilblValue = (Label)e.Row.FindControl("ilblValue");
+            Label ilblAdditionalData = (Label)e.Row.FindControl("ilblAdditionalData");
 
-            ArticleInfo info = (ArticleInfo)e.Row.DataItem;
+            KeyValue info = (KeyValue)e.Row.DataItem;
 
-            ilblTitle.Text = info.Title;
-            ilblSubmitTime.Text = info.SubmitTime;
-            ilblSubmitUser.Text = info.SubmitUser;
-            ilblClickCount.Text = info.ClickCount.ToString();
-
-            HyperLink ihlDetail = (HyperLink)e.Row.FindControl("ihlDetail");
+            ilblKey.Text = info.Key;
+            ilblValue.Text = info.Value;
+            ilblAdditionalData.Text = info.AdditionalData;
+            
             LinkButton ilbtnDelete = (LinkButton)e.Row.FindControl("ilbtnDelete");
             HyperLink ihlEdit = (HyperLink)e.Row.FindControl("ihlEdit");
             
-            ihlDetail.NavigateUrl = "news.aspx?id=" + info.Id;
-            ihlDetail.Target = "_blank";
             if (RequestFlag.HasValue)
             {
                 ihlEdit.Visible = true;
-                ihlEdit.NavigateUrl = "manager-news.aspx?id=" + info.Id;
+                ihlEdit.NavigateUrl = "manager-key-value.aspx?id=" + info.Id;
                 ihlEdit.Target = "_blank";
 
                 ilbtnDelete.Visible = true;
                 ilbtnDelete.CausesValidation = false;
                 ilbtnDelete.CommandName = "Delete";
-                ilbtnDelete.OnClientClick = "return confirm('确定要删除此文章吗？');";
+                ilbtnDelete.OnClientClick = "return confirm('确定要删除此keyValue吗？');";
             }
             else
             {
@@ -77,7 +75,7 @@ public partial class pages_manager_news_list : Page
     public void gv_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         string id = gv.DataKeys[e.RowIndex].Value.ToString();
-        IocContainer.Get<IArticleInfoDao>().DeleteById(id.ToLongReq());
+        IocContainer.Get<IKeyValueDao>().DeleteById(id.ToLongReq());
         BindData();
     }
 

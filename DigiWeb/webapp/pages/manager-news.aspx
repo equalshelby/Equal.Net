@@ -7,7 +7,7 @@
     <!-- answer-main -->
     <div class="news-main clearfix">
         <div class="wrap news-main-container clearfix">
-            <div class="header" >文章管理 </div>
+            <div class="header" >文章编辑 </div>
             <table class="form-table">
                 <tr>
                     <td class="lbl">标题
