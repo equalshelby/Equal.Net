@@ -234,5 +234,20 @@ namespace Equal.Utility
                 return Id;
             }
         }
+
+        /// <summary>
+        /// 根据雪花ID获取日期时间
+        /// </summary>
+        /// <param name="snowFlakeID">雪花ID</param>
+        /// <returns></returns>
+        public static DateTime GetDateTimeBySnowFlakeID(long snowFlakeID)
+        {
+            if (snowFlakeID >> 22 < 0)
+                throw new Exception("时间戳小于0,请输入正确的ID。");
+            long timeStamp = (snowFlakeID >> 22) + twepoch;
+            DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1997, 1, 1)); // 当地时区
+            DateTime dt = startTime.AddMilliseconds(timeStamp);
+            return dt;
+        }
     }
 }
